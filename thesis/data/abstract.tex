@@ -1,0 +1,54 @@
+\begin{cabstract}
+  影像动作放大技术是一种用于改变影像中感兴趣信号的变化幅度的技术。这类技术可以将
+  生活中原本裸眼无法感知的微弱变化放大到裸眼可以感知的幅度，从而挖掘出有价值的信
+  息。
+
+  根据视角的不同，影像动作放大技术分为拉格朗日视角和欧拉视角两种视角。其中，拉格
+  朗日视角的方法通过跟踪和改变粒子的运动轨迹来放大变化，但容易受到遮挡的影响，且
+  需要在后期对背景进行填充；欧拉视角的方法则通过分析和增强图像的像素点的灰度值随
+  时间的变化来放大变化，但对于已存在大幅度变化的场景，使用该方法会造成明显的“鬼
+  影”现象。
+
+  本文提出了一种结合了拉格朗日视角和欧拉视角的优点的影像动作放大方法，该方法在欧
+  拉影像动作放大技术的基础上，通过使用目标跟踪技术，将放大区域限制在由用户选定的
+  感兴趣区域上。同时，通过使用前景分割技术，将经过放大的动作与感兴趣区域的前景部
+  分进行多分辨率混合。
+
+  实验结果表明，该方法应用在已存在大幅度变化的场景时可以有效
+  的避免“鬼影”问题。此外，将放大的区域限制在感兴趣的区域，可以减少场景中的其他
+  部分对该区域的干扰，有利于对放大结果的后续分析。
+  
+\end{cabstract}
+\ckeywords{欧拉影像放大技术；目标跟踪；Mean-shift；GrabCut；多分辨率混合}
+
+\begin{eabstract}
+  Video motion magnification is a kind of techniques for changing the motion
+  amplitude of signal of interest from videos. With such techniques we are able
+  to reveal subtle changes in the world that are originally invisible to naked
+  eyes, so as to exploit valuable information.
+
+  Video motion magnification techniques follow two different perspectives
+  \textsl{i.e.} Lagrangian perspective or Eulerian perspective. On one hand,
+  methods following Lagrangian perspective amplify motions by tracking and
+  modifying the trajectory of particles, but it is easy to introduce artifacts
+  especially at region of occlusion boundaries and may require image-inpainting
+  as post-processing. On the other hand, methods following Eulerian perspective
+  amplify motions by analyzing and enhancing the variation of pixel values that
+  evolve over time. However, if the input video contains large motions, the
+  magnified video will suffer from artifacts that known as ghosting effect.
+
+  This paper presents a method that takes the advantages of both two
+  perspectives. Based on eulerian video magnification, we perform object
+  tracking to constrain the amplifying area to a region of interest that is
+  selected by the user. At the same time, our method relies on a foreground
+  segmentation for multi-resolution blending the amplified motion with the
+  foreground part of the original region.
+
+  The experimental results show that the
+  approach can obviously eliminate ghosting effect when processing videos with
+  large motions. Besides, by constraining the amplifying area to a region of
+  interest, it can significantly reduce interference from other parts of the
+  scene, which is beneficial to further studies on the amplified results.
+\end{eabstract}
+\ekeywords{eulerian video magnification; object tracking; Mean-shift; GrabCut;
+  multi-resolution blending}

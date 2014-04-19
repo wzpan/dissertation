@@ -1,0 +1,11 @@
+<project name="Thesis" ID="14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D" version="docear 1.0">
+<folder type="library" name="Library">
+<link type="file" name="Temp" path="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/_data/14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/default_files/temp.mm" system="true"/>
+<link type="file" name="Trash" path="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/_data/14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/default_files/trash.mm" system="true"/>
+</folder>
+<folder type="physical" name="My drafts" path="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/_data/14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/My%20Drafts/"/>
+<folder type="literature_repository" name="Literature repository" system="true">
+<folder type="repository_path" name="default" path="file:/media/file/&#x6211;&#x7684;&#x6587;&#x6863;/&#x79d1;&#x7814;/CG/Thesis//literature_repository"/>
+</folder>
+<link type="references" name="References" path="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/_data/14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/default_files/Thesis.bib" system="true"/>
+</project>
