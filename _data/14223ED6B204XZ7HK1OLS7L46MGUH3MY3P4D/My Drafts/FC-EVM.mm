@@ -259,7 +259,7 @@
 <node TEXT="&#x4e0d;&#x5206;&#x522b;&#x5904;&#x7406;&#x89c6;&#x9891;&#x5f69;&#x8272;&#x5e8f;&#x5217;&#x5e27;&#x7684;&#x4e09;&#x4e2a;&#x901a;&#x9053;&#xff0c;&#x800c;&#x662f;&#x501f;&#x52a9;&#x56db;&#x5143;&#x6570;&#x540c;&#x65f6;&#x5904;&#x7406;&#x4e09;&#x4e2a;&#x901a;&#x9053;&#x3002;" ID="ID_902916398" CREATED="1397394972136" MODIFIED="1397394980358"/>
 </node>
 </node>
-<node TEXT="&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;&#x6280;&#x672f;&#x6982;&#x8ff0;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="left" ID="ID_1895303173" CREATED="1383596194329" MODIFIED="1397386682978">
+<node TEXT="&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;&#x6280;&#x672f;&#x6982;&#x8ff0;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="left" ID="ID_1895303173" CREATED="1383596194329" MODIFIED="1397386682978">
 <icon BUILTIN="full-2"/>
 <edge COLOR="#0000ff"/>
 <node TEXT="&#x62c9;&#x683c;&#x6717;&#x65e5;&#x89c6;&#x89d2;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1736915757" CREATED="1390140165866" MODIFIED="1397422992752" MOVED="1390140166461">
@@ -327,7 +327,7 @@
 </node>
 </node>
 </node>
-<node TEXT="&#x6b27;&#x62c9;&#x89c6;&#x89d2;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" FOLDED="true" ID="ID_1573962448" CREATED="1383596266230" MODIFIED="1397422998004" MOVED="1390138549957">
+<node TEXT="&#x6b27;&#x62c9;&#x89c6;&#x89d2;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1573962448" CREATED="1383596266230" MODIFIED="1397422998004" MOVED="1390138549957">
 <node TEXT="&#x7ebf;&#x6027;&#x65b9;&#x6cd5;" ID="ID_1258443040" CREATED="1390138551968" MODIFIED="1397470659917" MOVED="1390141119942" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/Eulerian%20Video%20Magnification.pdf">
 <attribute NAME="key" VALUE="wu2012eulerian"/>
 <attribute NAME="journal" VALUE="ACM Transactions on Graphics (TOG)"/>
@@ -343,12 +343,15 @@
 <node TEXT="&#x6709;&#x52a9;&#x4e8e;&#x51cf;&#x5c11;&#x566a;&#x58f0;" ID="ID_774615696" CREATED="1390139289156" MODIFIED="1397470780458"/>
 <node TEXT="&#x4fbf;&#x4e8e;&#x5bf9;&#x56fe;&#x50cf;&#x4fe1;&#x53f7;&#x7684;&#x903c;&#x8fd1;" ID="ID_1867533495" CREATED="1390139313449" MODIFIED="1397470778282" MOVED="1390139315323"/>
 </node>
-<node TEXT="The Laplacian Pyramid as a Compact Image Code.pdf" ID="ID_1403361410" CREATED="1394462301428" MODIFIED="1394462301428" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/&#x91d1;&#x5b57;&#x5854;/The%20Laplacian%20Pyramid%20as%20a%20Compact%20Image%20Code.pdf">
+<node TEXT="The Laplacian Pyramid as a Compact Image Code.pdf" ID="ID_1403361410" CREATED="1394462301428" MODIFIED="1397907428134" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/&#x91d1;&#x5b57;&#x5854;/The%20Laplacian%20Pyramid%20as%20a%20Compact%20Image%20Code.pdf">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="6CF1A9CF61251E2841E8B904DF226CFE3B8C77D2C69CDD3EEE82D5C57108869">
     <pdf_title>The Laplacian Pyramid as a Compact Image Code</pdf_title>
 </pdf_annotation>
-<attribute NAME="key" VALUE="a"/>
-<attribute NAME="title" VALUE="The Laplacian Pyramid as a Compact Image Code"/>
+<attribute NAME="key" VALUE="Burt1983"/>
+<attribute NAME="title" VALUE="The Laplacian pyramid as a compact image code"/>
+<attribute NAME="journal" VALUE="Communications, IEEE Transactions on"/>
+<attribute NAME="authors" VALUE="Burt, Peter J and Adelson, Edward H"/>
+<attribute NAME="year" VALUE="1983"/>
 </node>
 </node>
 <node TEXT="&#x5bf9;&#x6bcf;&#x4e2a;&#x5c3a;&#x5ea6;&#xff0c;&#x8fdb;&#x884c;&#x65f6;&#x9891;&#x8f6c;&#x6362;&#x53ca;&#x5e26;&#x901a;&#x6ee4;&#x6ce2;&#xff0c;&#x5f97;&#x5230;&#x611f;&#x5174;&#x8da3;&#x7684;&#x82e5;&#x5e72;&#x9891;&#x5e26;" ID="ID_1596374350" CREATED="1390139238098" MODIFIED="1397489833785"/>
@@ -390,7 +393,7 @@
 </node>
 </node>
 </node>
-<node TEXT="&#x57fa;&#x4e8e;&#x76f8;&#x4f4d;&#x7684;&#x65b9;&#x6cd5;" ID="ID_1738298701" CREATED="1390138595655" MODIFIED="1390140495558" MOVED="1390141123950">
+<node TEXT="&#x57fa;&#x4e8e;&#x76f8;&#x4f4d;&#x7684;&#x65b9;&#x6cd5;" FOLDED="true" ID="ID_1738298701" CREATED="1390138595655" MODIFIED="1390140495558" MOVED="1390141123950">
 <node TEXT="Phase-Based Video Motion Processing" ID="ID_1152409191" CREATED="1390078574459" MODIFIED="1390158286890" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/Phase-Based%20Video.pdf" MOVED="1390142664581">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="374564D8205B7AB12B2DF591D09D26DC4F159F723C4E2A9FEFD702927A571">
     <pdf_title>x t</pdf_title>
@@ -504,12 +507,13 @@
 </node>
 </node>
 </node>
-<node TEXT="&#x524d;&#x666f;&#x7ea6;&#x675f;&#x7684;&#x6b27;&#x62c9;&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;&#x6280;&#x672f;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="left" ID="ID_860506139" CREATED="1383596194329" MODIFIED="1397386697833">
+<node TEXT="&#x524d;&#x666f;&#x7ea6;&#x675f;&#x7684;&#x6b27;&#x62c9;&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;&#x6280;&#x672f;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="left" ID="ID_860506139" CREATED="1383596194329" MODIFIED="1397386697833">
 <icon BUILTIN="full-3"/>
 <edge COLOR="#0000ff"/>
 <node TEXT="&#x65b9;&#x6cd5;&#x6846;&#x67b6;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_308934119" CREATED="1397387091120" MODIFIED="1397392564869" MOVED="1397387091649"/>
-<node TEXT="mean-shift" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1915612887" CREATED="1397386761110" MODIFIED="1397386773041">
-<node TEXT="Object-tracking-system-using-Camshift-Meanshift-and-Kalman-filter.pdf" ID="ID_1324904744" CREATED="1397386794197" MODIFIED="1397402705542" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/object%20tracking/Object-tracking-system-using-Camshift-Meanshift-and-Kalman-filter.pdf">
+<node TEXT="&#x533a;&#x57df;&#x8ddf;&#x8e2a;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1915612887" CREATED="1397386761110" MODIFIED="1398027260875">
+<node TEXT="Mean-shift" ID="ID_1967200102" CREATED="1398027264988" MODIFIED="1398027268342">
+<node TEXT="Object-tracking-system-using-Camshift-Meanshift-and-Kalman-filter.pdf" ID="ID_1324904744" CREATED="1397386794197" MODIFIED="1397402705542" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/object%20tracking/Object-tracking-system-using-Camshift-Meanshift-and-Kalman-filter.pdf" MOVED="1398027273119">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="D93A8F9EFA4E4669AE2F2BBC6D492D62BA2147A836A9D1C14C65ECBCEF8E">
     <pdf_title>Object tracking system using Camshift, Meanshift and Kalman filter</pdf_title>
 </pdf_annotation>
@@ -519,7 +523,7 @@
 <attribute NAME="title" VALUE="Object tracking system using Camshift, Meanshift and Kalman filter"/>
 <attribute NAME="year" VALUE="2012"/>
 </node>
-<node TEXT="Design of Tracking System Based on Mean-shift and Kalman Filter.pdf" ID="ID_1167724943" CREATED="1397386812618" MODIFIED="1397402705558" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/object%20tracking/Design%20of%20Tracking%20System%20Based%20on%20Mean-shift%20and%20Kalman%20Filter.pdf">
+<node TEXT="Design of Tracking System Based on Mean-shift and Kalman Filter.pdf" ID="ID_1167724943" CREATED="1397386812618" MODIFIED="1397402705558" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/object%20tracking/Design%20of%20Tracking%20System%20Based%20on%20Mean-shift%20and%20Kalman%20Filter.pdf" MOVED="1398027273139">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="8CE578B2D78258EF697B592E633141775EECF6D1C1B6E75774506EEB2B35FEC4">
     <pdf_title>Design of Tracking System Based on Mean-shift and Kalman Filter</pdf_title>
 </pdf_annotation>
@@ -528,7 +532,32 @@
 <attribute NAME="title" VALUE="Design of tracking system based on mean-shift and Kalman filter"/>
 <attribute NAME="year" VALUE="2009"/>
 </node>
+<node TEXT="&#x57fa;&#x4e8e;&#x5747;&#x503c;&#x6f02;&#x79fb;&#x4e0e;&#x5361;&#x5c14;&#x66fc;&#x6ee4;&#x6ce2;&#x7684;&#x76ee;&#x6807;&#x8ddf;&#x8e2a;&#x7b97;&#x6cd5;.pdf" ID="ID_1181841" CREATED="1398019447144" MODIFIED="1398019447144" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/object%20tracking/&#x57fa;&#x4e8e;&#x5747;&#x503c;&#x6f02;&#x79fb;&#x4e0e;&#x5361;&#x5c14;&#x66fc;&#x6ee4;&#x6ce2;&#x7684;&#x76ee;&#x6807;&#x8ddf;&#x8e2a;&#x7b97;&#x6cd5;.pdf" MOVED="1398027273158">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="6049AAA065CD4CD73F807BF75347EC3192BEB8A63E3440F0916BAEF6E69CFA35">
+    <pdf_title>&#xbbf9;&#xd3da;&#xbef9;&#xd6b5;&#xc6af;&#xd2c6;&#xd3eb;&#xbfa8;&#xb6fb;&#xc2fc;&#xc2cb;&#xb2a8;&#xb5c4;&#xc4bf;&#xb1ea;&#xb8fa;&#xd7d9;&#xcbe3;&#xb7a8;</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="&#x5e38;&#x53d1;&#x4eae;2007"/>
+<attribute NAME="journal" VALUE="&#x8ba1;&#x7b97;&#x673a;&#x5de5;&#x7a0b;&#x4e0e;&#x5e94;&#x7528;"/>
+<attribute NAME="authors" VALUE="&#x5e38;&#x53d1;&#x4eae; and &#x5218;&#x96ea; and &#x738b;&#x534e;&#x6770;"/>
+<attribute NAME="title" VALUE="&#x57fa;&#x4e8e;&#x5747;&#x503c;&#x6f02;&#x79fb;&#x4e0e;&#x5361;&#x5c14;&#x66fc;&#x6ee4;&#x6ce2;&#x7684;&#x76ee;&#x6807;&#x8ddf;&#x8e2a;&#x7b97;&#x6cd5;"/>
+<attribute NAME="year" VALUE="2007"/>
 </node>
+</node>
+<node TEXT="Kalman &#x6ee4;&#x6ce2;" ID="ID_802568599" CREATED="1398027277824" MODIFIED="1398027284155"/>
+</node>
+<node TEXT="&#x524d;&#x666f;&#x5206;&#x5272;" ID="ID_1903806817" CREATED="1398027284867" MODIFIED="1398027292313">
+<node TEXT="grabcut.pdf" ID="ID_374368856" CREATED="1398027490969" MODIFIED="1398027490970" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/&#x5206;&#x5272;/grabcut.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="32C596E7CF1AEF445CC96A78F154A796C2F46C728197CDFFF8641D5C1CE5FB">
+    <pdf_title>\GrabCut&quot; | Interactive Foreground Extraction using Iterated Graph Cuts</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Rother2004"/>
+<attribute NAME="authors" VALUE="Rother, Carsten and Kolmogorov, Vladimir and Blake, Andrew"/>
+<attribute NAME="title" VALUE="Grabcut: Interactive foreground extraction using iterated graph cuts"/>
+<attribute NAME="year" VALUE="2004"/>
+</node>
+</node>
+<node TEXT="&#x5c40;&#x90e8;&#x6b27;&#x62c9;&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;" ID="ID_10934611" CREATED="1398027296493" MODIFIED="1398027310573"/>
+<node TEXT="&#x91d1;&#x5b57;&#x5854;&#x6df7;&#x5408;" ID="ID_788403345" CREATED="1398027314253" MODIFIED="1398027318716"/>
 </node>
 <node TEXT="&#x5b9e;&#x9a8c;&#x7ed3;&#x679c;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="left" ID="ID_1929958405" CREATED="1397394610483" MODIFIED="1397394638365">
 <icon BUILTIN="full-4"/>

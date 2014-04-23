@@ -345,13 +345,15 @@
     \begin{center}{\sanhao \hei \@displaytitle}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}%
+  \ifisanon{}\else{
   \begin{center}%
     \begin{tabular}[c]{ll}%
-      专业名称： & \ifisanon{}\else{\@subject}\fi \\%
-      申请者：& \ifisanon{}\else{\@author}\fi \\%
-      导师： & \ifisanon{}\else{\@supervisor~\@protitle}\fi \\%
-    \end{tabular}%
+      专业名称： & \@subject \\%
+      申请者：& \@author \\%
+      导师： & \@supervisor~\@protitle \\%
+    \end{tabular}%    
   \end{center}%
+  }\fi
   ~\\%
   ~\\%
   ~\\%
@@ -369,13 +371,15 @@
     \begin{center}{\sanhao \textsf{\@entitle}}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}
+  \ifisanon{}\else{
   \begin{center}%
     \begin{tabular}[c]{ll}%
-      Major： &\ifisanon{}\else{\@ensubject}\fi \\%
-      Name：& \ifisanon{}\else{\@enauthor}\fi \\%
-      Supervisor： &\ifisanon{}\else{\@ensupervisor}\fi\\%
+      Major： & \@ensubject \\%
+      Name：& \@enauthor \\%
+      Supervisor： & \@ensupervisor \\%
     \end{tabular}%
   \end{center}%
+  }\fi
   ~\\%
   ~\\%
   ~\\%
@@ -552,7 +556,6 @@
 \newtheorem{proof}{证明}[chapter]
 \newtheorem{assumption}{假设}[chapter]
 \newtheorem{definition}{定义}[chapter]
-
 \renewtheoremstyle{plain}%
 {\item[\hspace*{2em} \theorem@headerfont ##1\ ##2\theorem@separator]}%
 {\item[\hspace*{2em} \theorem@headerfont ##1\ ##2\ (##3)\theorem@separator]}
