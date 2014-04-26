@@ -3,7 +3,7 @@
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="&#x524d;&#x666f;&#x7ea6;&#x675f;&#x7684;&#x6b27;&#x62c9;&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;&#x6280;&#x672f;" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1928396989" CREATED="1397319628626" MODIFIED="1397423296235">
 <hook NAME="AutomaticEdgeColor" COUNTER="4"/>
-<hook NAME="MapStyle" zoom="1.213">
+<hook NAME="MapStyle" zoom="0.912">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
 
 <map_styles>
@@ -53,7 +53,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<node TEXT="&#x7eea;&#x8bba;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="right" ID="ID_1549256819" CREATED="1383583808315" MODIFIED="1390146026518">
+<node TEXT="&#x7eea;&#x8bba;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="right" ID="ID_1549256819" CREATED="1383583808315" MODIFIED="1390146026518">
 <icon BUILTIN="full-1"/>
 <edge COLOR="#ff0000"/>
 <node TEXT="&#x7814;&#x7a76;&#x80cc;&#x666f;&#x53ca;&#x52a8;&#x673a;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1982629156" CREATED="1390139147318" MODIFIED="1390141491932">
@@ -96,7 +96,7 @@
 </node>
 </node>
 </node>
-<node TEXT="&#x56fd;&#x5185;&#x5916;&#x7814;&#x7a76;&#x73b0;&#x72b6;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" FOLDED="true" ID="ID_1623151584" CREATED="1397340799496" MODIFIED="1397340833588">
+<node TEXT="&#x56fd;&#x5185;&#x5916;&#x7814;&#x7a76;&#x73b0;&#x72b6;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1623151584" CREATED="1397340799496" MODIFIED="1397340833588">
 <node TEXT="&#x6355;&#x6349;&#x3001;&#x64cd;&#x7eb5;&#x548c;&#x91cd;&#x653e;&#x52a8;&#x4f5c;&#x6570;&#x636e;" ID="ID_851877293" CREATED="1397399919982" MODIFIED="1397399931509" MOVED="1397399920724">
 <node TEXT="Interactive Control of Avatars Animated with Human Motion Data.pdf" ID="ID_1459088492" CREATED="1397400253483" MODIFIED="1397400253484" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/motion%20related/Interactive%20Control%20of%20Avatars%20Animated%20with%20Human%20Motion%20Data.pdf">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="B1F048C61D5E64BED9C7DEE83BDDE7A4866CFE2DCD9CA8C4DCD5A9928C9144">
@@ -308,7 +308,7 @@
     <pdf_title>:9;7/2272&lt;:9&lt;=9:&apos;:: 7::9 ,</pdf_title>
 </pdf_annotation>
 <attribute NAME="key" VALUE="Boykov2001"/>
-<attribute NAME="journal" VALUE="Pattern Analysis and Machine Intelligence, IEEE Transactions on"/>
+<attribute NAME="journal" VALUE="IEEE Transactions on Pattern Analysis and Machine Intelligence"/>
 <attribute NAME="authors" VALUE="Boykov, Yuri and Veksler, Olga and Zabih, Ramin"/>
 <attribute NAME="title" VALUE="Fast approximate energy minimization via graph cuts"/>
 <attribute NAME="year" VALUE="2001"/>
@@ -349,7 +349,7 @@
 </pdf_annotation>
 <attribute NAME="key" VALUE="Burt1983"/>
 <attribute NAME="title" VALUE="The Laplacian pyramid as a compact image code"/>
-<attribute NAME="journal" VALUE="Communications, IEEE Transactions on"/>
+<attribute NAME="journal" VALUE="IEEE Transactions on Communications"/>
 <attribute NAME="authors" VALUE="Burt, Peter J and Adelson, Edward H"/>
 <attribute NAME="year" VALUE="1983"/>
 </node>
@@ -399,9 +399,9 @@
     <pdf_title>x t</pdf_title>
 </pdf_annotation>
 <attribute NAME="key" VALUE="Wadhwa2013PhaseBased"/>
-<attribute NAME="journal" VALUE="ACM Trans. Graph. (Proceedings SIGGRAPH 2013)"/>
-<attribute NAME="authors" VALUE="Neal Wadhwa and Michael Rubinstein and Fr\&apos;{e}do Durand and William T. Freeman"/>
-<attribute NAME="title" VALUE="Phase-Based Video Motion Processing"/>
+<attribute NAME="journal" VALUE="ACM Transactions on Graphics (TOG)"/>
+<attribute NAME="authors" VALUE="Wadhwa, Neal and Rubinstein, Michael and Durand, Fr{\&apos;e}do and Freeman, William T"/>
+<attribute NAME="title" VALUE="Phase-based video motion processing"/>
 <attribute NAME="year" VALUE="2013"/>
 <node TEXT="phase-based.mp4" ID="ID_74171461" CREATED="1390078636939" MODIFIED="1390078636940" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/phase-based.mp4" MOVED="1390142646482"/>
 </node>
@@ -544,8 +544,9 @@
 </node>
 </node>
 <node TEXT="Kalman &#x6ee4;&#x6ce2;" ID="ID_802568599" CREATED="1398027277824" MODIFIED="1398027284155"/>
+<node TEXT="Mean-shift&#x4e0e;Kalman&#x6ee4;&#x6ce2;&#x7684;&#x7ed3;&#x5408;" ID="ID_872251620" CREATED="1398545047911" MODIFIED="1398545055522"/>
 </node>
-<node TEXT="&#x524d;&#x666f;&#x5206;&#x5272;" ID="ID_1903806817" CREATED="1398027284867" MODIFIED="1398027292313">
+<node TEXT="&#x524d;&#x666f;&#x5206;&#x5272;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1903806817" CREATED="1398027284867" MODIFIED="1398545034931">
 <node TEXT="grabcut.pdf" ID="ID_374368856" CREATED="1398027490969" MODIFIED="1398027490970" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/&#x5206;&#x5272;/grabcut.pdf">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="32C596E7CF1AEF445CC96A78F154A796C2F46C728197CDFFF8641D5C1CE5FB">
     <pdf_title>\GrabCut&quot; | Interactive Foreground Extraction using Iterated Graph Cuts</pdf_title>
@@ -556,8 +557,11 @@
 <attribute NAME="year" VALUE="2004"/>
 </node>
 </node>
-<node TEXT="&#x5c40;&#x90e8;&#x6b27;&#x62c9;&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;" ID="ID_10934611" CREATED="1398027296493" MODIFIED="1398027310573"/>
-<node TEXT="&#x91d1;&#x5b57;&#x5854;&#x6df7;&#x5408;" ID="ID_788403345" CREATED="1398027314253" MODIFIED="1398027318716"/>
+<node TEXT="&#x5c40;&#x90e8;&#x6b27;&#x62c9;&#x5f71;&#x50cf;&#x52a8;&#x4f5c;&#x653e;&#x5927;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_10934611" CREATED="1398027296493" MODIFIED="1398545039650">
+<node TEXT="&#x57fa;&#x4e8e;CIEL*a*b*&#x7a7a;&#x95f4;&#x7684;&#x989c;&#x8272;&#x8870;&#x51cf;" ID="ID_899474162" CREATED="1398545064879" MODIFIED="1398545079737"/>
+<node TEXT="&#x57fa;&#x4e8e;&#x56db;&#x5143;&#x6570;&#x7684;&#x7406;&#x60f3;&#x5e26;&#x901a;&#x6ee4;&#x6ce2;" ID="ID_279859655" CREATED="1398545167556" MODIFIED="1398545173415"/>
+</node>
+<node TEXT="&#x91d1;&#x5b57;&#x5854;&#x6df7;&#x5408;" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_788403345" CREATED="1398027314253" MODIFIED="1398545039663"/>
 </node>
 <node TEXT="&#x5b9e;&#x9a8c;&#x7ed3;&#x679c;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="left" ID="ID_1929958405" CREATED="1397394610483" MODIFIED="1397394638365">
 <icon BUILTIN="full-4"/>
@@ -566,6 +570,12 @@
 <node TEXT="&#x603b;&#x7ed3;&#x4e0e;&#x5c55;&#x671b;" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="left" ID="ID_1223359275" CREATED="1397394616798" MODIFIED="1397394641722">
 <icon BUILTIN="full-5"/>
 <edge COLOR="#ff00ff"/>
+<node TEXT="&#x603b;&#x7ed3;" ID="ID_215697643" CREATED="1398545184075" MODIFIED="1398545186700"/>
+<node TEXT="&#x5c55;&#x671b;" ID="ID_1420485218" CREATED="1398545186905" MODIFIED="1398545189448">
+<node TEXT="&#x524d;&#x666f;&#x5206;&#x5272;&#x7b97;&#x6cd5;&#x7684;&#x4f18;&#x5316;" ID="ID_1145219299" CREATED="1398545190386" MODIFIED="1398545201021"/>
+<node TEXT="&#x8ddf;&#x8e2a;&#x7b97;&#x6cd5;&#x7684;&#x589e;&#x5f3a;" ID="ID_331400865" CREATED="1398545205330" MODIFIED="1398545206269"/>
+<node TEXT="&#x5f15;&#x5165;&#x89c6;&#x9891;&#x6821;&#x51c6;&#x7b97;&#x6cd5;" ID="ID_1597888502" CREATED="1398545210130" MODIFIED="1398545211063"/>
+</node>
 </node>
 </node>
 </map>

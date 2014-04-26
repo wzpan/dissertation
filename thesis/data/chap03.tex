@@ -1,12 +1,12 @@
 \chapter{前景约束的欧拉影像动作放大技术}
 \label{chap:fc-evm}
 
-针对第\ref{chap:previous}章中所介绍的几种动作放大方法的不足，本文提出一种前景约
-束的欧拉影像动作放大方法，该方法在欧拉视角的动作放大方法的基础上，结合了拉格朗日
-视角的特点，通过使用目标跟踪技术，将放大区域限制在由用户选定的感兴趣区域上，再通
-过使用前景分割技术，将动作结果与原图像的，将放大区域进一步限制在
-感兴趣区域中的前景区域。数学上，本文使用四元数矩阵一次性处理视频的彩色序列帧的三
-个通道，具备更好的完整性。
+针对第\ref{chap:previous}章中所介绍的几种动作放大方法的不足，本文提出一种前景约束
+的欧拉影像动作放大方法，该方法在欧拉视角的动作放大方法的基础上，结合了拉格朗日视
+角的特点，通过使用目标跟踪技术，将放大区域限制在由用户选定的感兴趣区域上，再通过
+使用前景分割技术，将动作放大结果与原图像进行金字塔混合，将放大区域进一步限制在感
+兴趣区域中的前景区域。数学上，本文使用四元数矩阵一次性处理视频的彩色序列帧的三个
+通道，具备更好的完整性。
 
 本文的算法包括如下几个步骤：
 
@@ -54,10 +54,10 @@
 与Kalman滤波相结合的算法对视频中的每一帧进行区域跟踪，以找出与感兴趣区域最相似的
 目标候选区域。该算法在目标受到干扰和遮挡的情况下依然能够具有较好的跟踪效果。
 
-\subsection{Mean-shift 算法}
+\subsection{Mean-shift算法}
 \label{sec:mean-shift}
 
-Mean-shift 算法是一种在一组数据的密度分布中寻找局部极值的算
+Mean-shift算法是一种在一组数据的密度分布中寻找局部极值的算
 法\upcite{comaniciu2002mean,fukunaga1975estimation}，该算法利用可视化特征（如颜色、
 纹理等）的统计信息描述跟踪的目标，并通过梯度下降策略，找出与目标模式具有最大相似
 度的目标候选区域作为跟踪结果。
@@ -110,17 +110,17 @@ $d(y)$ 越小，两个颜色分布直方图越相近。
     w_{i}=\sum_{i=1}^{m}\sqrt{\frac{q_u}{p_{u}(y_0)}}\delta[b(x)-u]
 \end{equation}
 
-要使 Bhattacharyya 系数最大，即是使公式\ref{eq:taylor}的第二项达到最大。
+要使Bhattacharyya系数最大，即是使公式\ref{eq:taylor}的第二项达到最大。
 因此，可沿梯度方向确定下一个目标候选区域的位置：
 \begin{equation}
     \label{eq:next-position}
     y_{i}=\frac{\sum_{i=1}^{m}x_{i}w_{i}g\left(\left\|\frac{y_0-x_i}{h}\right\|^{2}\right)}{\sum_{i=1}^{m}w_{i}g\left(\left\|\frac{y_0-x_i}{h}\right\|^{2}\right)}
   \end{equation}
 
-Mean-shift 的搜索过程如算法\ref{alg:delta}所示。
+Mean-shift的搜索过程如算法\ref{alg:delta}所示。
 
 \begin{algorithm}[htbp]
-  \caption{Mean-shift 搜索算法}
+  \caption{Mean-shift搜索算法}
   \label{alg:delta}
   \begin{algorithmic}[1]
     \REQUIRE 目标模式$q_u$及上一帧的目标窗口的位置$y_0$ 。
@@ -137,8 +137,9 @@ Mean-shift 的搜索过程如算法\ref{alg:delta}所示。
     否则，令$y_{0}\leftarrow y_{i}$，返回步骤 2。
   \end{algorithmic}
 \end{algorithm}
+\par
 
-\subsection{Kalman 滤波}
+\subsection{Kalman滤波}
 \label{sec:kalman}
 
 Kalman滤波又称为线性二次估计（Linear Quadratic Estimation, LQE），该方法能够
@@ -210,7 +211,7 @@ $$
 计，$K_{k+1}$为滤波增益矩阵，$P_{k+1, k}$为一步预测误差方差阵，$P_{k+1}$为估计误
 差方差阵。
 
-\subsection{Mean-shift 与 Kalman 滤波相结合的跟踪算法}
+\subsection{Mean-shift与Kalman滤波相结合的跟踪算法}
 \label{sec:combine}
 
 将Mean-shift跟踪算法与Kalman滤波相结合，可以在跟踪的过程中同时考虑目标的运动
@@ -314,7 +315,7 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
 法可以使用线性的方法\upcite{wu2012eulerian}或者基于相位的方
 法\upcite{Wadhwa2013PhaseBased}。
 
-\subsection{基于 CIEL*a*b* 空间的颜色衰减}
+\subsection{基于CIEL*a*b*空间的颜色衰减}
 \label{sec:cielab}
 
 为了抑制噪声，上述两种方法在进行动作放大前，先将视频的每一帧图像由RGB颜色空间转
@@ -383,35 +384,78 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
 \begin{figure}[htbp]
   \centering
   \subfloat[衰减前，图像存在较多颜色噪点]{
-    \includegraphics[width=.6\textwidth]{attenuation-before.png}
+    \includegraphics[width=.8\textwidth]{attenuation-before.png}
   }\\
   \subfloat[衰减后，颜色噪点被消除]{
-    \includegraphics[width=.6\textwidth]{attenuation-after.png}
+    \includegraphics[width=.8\textwidth]{attenuation-after.png}
   }
   \caption{对a*、b*两个通道的变化进行衰减前后结果对比}
   \label{fig:attenuation}
 \end{figure}
 
-\subsection{基于四元数的时频处理}
+\subsection{基于四元数的理想带通滤波}
 \label{sec:real-quaternion-fourier}
 
-在进行带通滤波时，文献\cite{wu2012eulerian}及文献\cite{Wadhwa2013PhaseBased}
-需要先将彩色图像分离成Y、I、Q三个通道图像，然后对每一个通道的图像单独进行傅里叶
-变换及带通滤波。本文并不显式地分离彩色图像的三个通道，而是将彩色图像
-的L*、a*、b*三个分量同时放入一个四元数矩阵\upcite{hamilton1866elements}中，然后
-直接对其进行傅里叶变换和带通滤波等时频处理，具备更好的整体性。
+如\ref{sec:eulerian}所述，得到不同空间频率的基带后，对每一基带进行带通滤波，可以
+得到感兴趣的变化信号。对于不需要对放大结果进行后续的时频分析的场合，本文使用宽通
+带的二阶无限脉冲响应带通滤波器进行带通滤波，该滤波器利用前后帧的差分关系来进行滤
+波，因而无需进行时频转换\upcite{storn1996differential}；而对于需要对放大结果进行
+后续的时频分析的场合，本文使用窄通带的理想带通滤波器进行带通滤波。
 
-  一个四元数是如下形式的超复数：
-  \begin{equation}
-    \label{eq:real-quaternion-fourier}
-    q=a+bi+cj+dk
-  \end{equation}
-  
-  其中，$a$、$b$、$c$和$d$是实数，$i$、$j$和$k$是复数单位，且满足：
-  \begin{equation}
-    \label{eq:ijk}
-    i^2=j^2=k^2=-1\mbox{，}ij=-ji=k\mbox{，}jk=-kj=i\mbox{，}ik=-ki=-j
-  \end{equation}
+对一幅灰度图像进行频率域的理想带通滤波前，需要先对图像进行傅里叶变换，将其转换到
+频率域，再构造一个滤波器与之做乘积。二维数字图像的傅里叶变换（DFT）定义为：
+\begin{equation}
+  \label{eq:dft}
+  F(u,v)=\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)e^{-j2\pi(ux/M+vy/N)}
+\end{equation}
+
+其中，离散变量$u$，$v$满足$u=0,1,2,\ldots,M-1$，$v=0,1,2,\ldots,N-1$。
+
+由于彩色图像无法直接进行傅里叶变换，因此，文献\cite{wu2012eulerian}及文
+献\cite{Wadhwa2013PhaseBased}需要先将每一基带的彩色图像分离成Y、I、Q三个通道图像，
+然后对每一个通道的图像单独进行傅里叶变换及带通滤波。
+
+对彩色图像进行理想带通滤波的过程如算
+法\ref{alg:temporal-filter}所示\upcite{Gonzalez:2006:DIP:1076432}：
+
+\begin{algorithm}[htbp]
+  \caption{理想带通滤波器滤波步骤}
+  \label{alg:temporal-filter}
+  \begin{algorithmic}[1]
+    \REQUIRE 大小为$M\times N$的彩色图像$f(x,y)$。
+    \ENSURE 滤波结果 $g(x,y)$。
+    \STATE 通道分解：将彩色图像$f(x,y)$分成三个通道的图像$f_1(x,y)$，
+    $f_2(x,y)$和$f_3(x,y)$。对每幅图像分别执行第2$\sim$7步。
+    \STATE 填充图像：对$f_i(x,y)$填充必要数量的0，形成大小为$P\times Q$的填充后的图像
+    $f_{p}(x,y)$。其中，$P$和$Q$分别是满足$P\le 2M-1$和$Q\le 2N-1$的最小偶整数。
+    \STATE 中心化图像：用$(-1)^{x,y}$乘以$f_{p}(x,y)$，使其移到变换的中心。
+    \STATE DFT：根据公式\ref{eq:dft}计算来自步骤3的图像的DFT，得到$F(u,v)$。
+    \STATE 理想带通滤波：生成一个实的、对称的理想带通滤波函数 $H(u,v)$，其大小为
+    $P\times Q$，中心在$(P/2, Q/2)$处，对图像进行带通滤波操作：$$G(u,v)=H(u,v)F(u,v)$$
+    \STATE IDFT：得到处理后的图像：$$g_p(x,y)=\left\{
+      \mbox{real}[\Im^{-1}[G(u,v)]] \right\}(-1)^{x+y}$$ 其中，$\Im^{-1}$是IDFT，
+    下标$p$用于表明$g_p(x,y)$是填充后的序列。
+    \STATE 提取结果：从$g_p(x,y)$的左象限提取$M\times N$区域，得到该通道的滤波结
+    果$g_i(x,y)$。
+    \STATE 合并通道：将三个单通道的滤波结果$g_1(x,y)$，$g_2(x,y)$和$g_3(x,y)$重新合成一幅彩色图像。
+  \end{algorithmic}
+\end{algorithm}
+
+与上述方法不同，本文在进行理想带通滤波时，并不显式地分离彩色图像的三个通道，而是
+将彩色图像的L*、a*、b*三个分量放入一个四元数\upcite{hamilton1866elements}的矢量部
+分，形成一个纯四元数。然后直接对其进行傅里叶变换和带通滤波等时频处理，具备更好的整体性。
+
+一个四元数是如下形式的超复数：
+\begin{equation}
+  \label{eq:quaternion}
+  q=a+bi+cj+dk
+\end{equation}
+
+其中，$a$、$b$、$c$和$d$是实数，$i$、$j$和$k$是复数单位，且满足：
+\begin{equation}
+  \label{eq:ijk}
+  i^2=j^2=k^2=-1\mbox{，}ij=-ji=k\mbox{，}jk=-kj=i\mbox{，}ik=-ki=-j
+\end{equation}
 
 四元数的模定义为：$\left|q\right|=\sqrt{a^2+b^2+c^2+d^2}$，共轭定义为：$\bar{q}=a-bi-cj-dk$。
 
@@ -419,15 +463,38 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
 
 文献\cite{sangwine2000discrete}给出了一般性的四元数傅里叶变换：
 \begin{equation}
-  \label{eq:quaternion-fourier}
-  F[u,v]=\frac{1}{\sqrt{MN}}\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}e^{-u2\pi((mv/M)+(nu/N))}f(n,m)
+  \label{eq:quaternion-dft}
+  F(u,v)=\frac{1}{\sqrt{MN}}\sum_{y=0}^{M-1}\sum_{x=0}^{N-1}e^{-\mu 2\pi((yv/M)+(xu/N))}f(x,y)
 \end{equation}
 
 在本文中，$f$是包含了L*，a*，b*三个分量的二维向量，即
 \begin{equation}
   \label{eq:quaternion-lab}
-  f(n,m)=L^{*}(n,m)i+a^{*}(n,m)j+b^{*}(n,m)k
+  f(x,y)=L^{*}(x,y)i+a^{*}(x,y)j+b^{*}(x,y)k
 \end{equation}
+
+算法\ref{alg:quaternion-temporal-filter}给出了基于四元数的理想带通滤波的步骤。
+
+\begin{algorithm}[htbp]
+  \caption{基于四元数的理想带通滤波器滤波步骤}
+  \label{alg:quaternion-temporal-filter}
+  \begin{algorithmic}[1]
+    \REQUIRE 大小为$M\times N$的四元数向量$f(x,y)$。
+    \ENSURE 滤波结果 $g(x,y)$。
+    \STATE 填充图像：对$f(x,y)$填充必要数量的0，形成大小为$P\times Q$的填充后的图像
+    $f_{p}(x,y)$。其中，$P$和$Q$分别是满足$P\le 2M-1$和$Q\le 2N-1$的最小偶整数。
+    \STATE 中心化图像：用$(-1)^{x,y}$乘以$f_{p}(x,y)$，使其移到变换的中心。
+    \STATE DFT：根据公式\ref{eq:quaternion-dft}计算来自步骤3的图像的DFT，得到$F(u,v)$。
+    \STATE 理想带通滤波：生成一个实的、对称的理想带通滤波函数 $H(u,v)$，其大小为
+    $P\times Q$，中心在$(P/2, Q/2)$处，对图像进行带通滤波操作：$$G(u,v)=H(u,v)F(u,v)$$
+    \STATE IDFT：得到处理后的图像：$$g_p(x,y)=\left\{
+      \mbox{real}[\Im^{-1}[G(u,v)]] \right\}(-1)^{x+y}$$ 其中，$\Im^{-1}$是IDFT，
+    下标$p$用于表明$g_p(x,y)$是填充后的序列。
+    \STATE 提取结果：从$g_p(x,y)$的左象限提取$M\times N$区域，得到该通道的滤波结
+    果$g(x,y)$。
+  \end{algorithmic}
+\end{algorithm}
+
 
 \section{金字塔混合}
 \label{sec:pyramid-blending}
@@ -465,6 +532,8 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
 
 图\ref{fig:blend-compare}给出了单基带混合和金字塔混合的结果对比。经过单基带混合
 后，女孩的脖子处依然存在明显的边界。而经过金字塔混合后，脖子处的边界已经被消除。
+
+\clearpage
 
 \begin{figure}[htbp]
   \centering

@@ -246,7 +246,7 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 
 \begin{table}[htbp]
   \centering
-  \caption{实验二的程序执行速度（fps）}
+  \caption{实验三的程序执行速度（fps）}
   \label{tab:time3}
   \begin{tabular}[c]{rrr}
     \toprule[1.5pt]
@@ -277,6 +277,13 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 表了该图的YT切片所选取的位置。图\ref{fig:exam4-reference-2}最左侧子图的绿线代表
 了所选择的感兴趣区域。
 
+从图\ref{fig:exam4-result}中可知，经过两步放大后，地面的震动和膝盖部位的光线变化
+得到了增强。因此，通过使用全局的欧拉影像放大方法和本文所提出的前景约束的方法相结
+合的方法，既可以放大场景中存在大幅度动作的物体中的细微动作，也可以放大场景中的其
+他区域，而且可以有效的防止出现“鬼影”问题。
+
+\clearpage
+
 \begin{figure}[htbp]
   \centering
   \subfloat[输入视频及YT切片]{
@@ -300,11 +307,6 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
   \caption{实验四的放大结果}
   \label{fig:exam4-result}
 \end{figure}
-
-从图\ref{fig:exam4-result}中可知，经过两步放大后，地面的震动和膝盖部位的光线变化
-得到了增强。因此，通过使用全局的欧拉影像放大方法和本文所提出的前景约束的方法相结
-合的方法，既可以放大场景中存在大幅度动作的物体中的细微动作，也可以放大场景中的其
-他区域，而且可以有效的防止出现“鬼影”问题。
 
 %%% Local Variables: 
 %%% mode: latex
