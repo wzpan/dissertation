@@ -50,7 +50,7 @@
 \item 作为前景分割的标注区域。
 \end{compactenum}
 
-用户确定好感兴趣区域后，本文使用文献\cite{常发亮2007}提出的Mean-shift算法
+用户确定好感兴趣区域后，本文使用文献\cite{常发亮2007}提出的Mean-shift跟踪
 与Kalman滤波相结合的算法对视频中的每一帧进行区域跟踪，以找出与感兴趣区域最相似的
 目标候选区域。该算法在目标受到干扰和遮挡的情况下依然能够具有较好的跟踪效果。
 
@@ -72,9 +72,9 @@ Mean-shift算法是一种在一组数据的密度分布中寻找局部极值的�
 \end{equation}
 
 其中，$x_{0}$ 是搜索窗口的中心点的位置，$x_{i}$ 是窗口内第$i$点的位置，
-$k\left( \left\| x \right\|^{2} \right)$ 是核函数，$h$ 是窗宽，$b$ 为脉冲函数，
-用于保证只有第$u$个特征值的像素才能对概率分布作出贡献，$\delta$为Kronecker
-delta函数，归一化常数$C$用于保证$\sum_{u=1}^{m}\hat{q_u}=1$。
+$k\left( \left\| x \right\|^{2} \right)$ 是核函数，$h$ 是窗宽。$b$ 为脉冲函数，
+用于保证只有第$u$个特征值的像素才能对概率分布作出贡献。$\delta$为Kronecker
+delta函数。归一化常数$C$用于保证$\sum_{u=1}^{m}\hat{q_u}=1$。
 
 目标候选模式的核直方图计算方法与公式\ref{eq:characteristic-prob}类似。假设$y_0$是当前帧的目标候选区域的中心点，则其概率分布为：
 \begin{equation}
@@ -215,7 +215,7 @@ $$
 \label{sec:combine}
 
 将Mean-shift跟踪算法与Kalman滤波相结合，可以在跟踪的过程中同时考虑目标的运动
-方向和速度信息，从而较为稳定的跟踪场景中的目标。该算法对遮挡、光线变化等影响不敏
+方向和速度信息，从而较为稳定地跟踪场景中的目标。该算法对遮挡、光线变化等影响不敏
 感。
 
 $k+1$时刻目标的位置$\hat{X}_{k+1}$由式\ref{eq:target-pos}得到：
@@ -271,7 +271,7 @@ Graph Cuts的区别在于：
 \item 迭代估计（iterative estimation）。Graph Cuts算法是基于能量最小化一次性完成
   分割的，而GrabCut算法则是一个不断进行分割估计和模型参数学习的迭代过程。
 \item 不完全标注（incomplete labelling）。Graph Cuts要求用户在目标和背景中选取一
-  些种子点，因而需要较多的交互；而GrabCut只需要用户简单的框选包含目标的区域，就
+  些种子点，因而需要较多的交互；而GrabCut只需要用户简单地框选包含目标的区域，就
   足以达到良好的分割效果。
 \end{compactenum}
 
@@ -423,7 +423,7 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
   \label{alg:temporal-filter}
   \begin{algorithmic}[1]
     \REQUIRE 大小为$M\times N$的彩色图像$f(x,y)$。
-    \ENSURE 滤波结果 $g(x,y)$。
+    \ENSURE 滤波结果$g(x,y)$。
     \STATE 通道分解：将彩色图像$f(x,y)$分成三个通道的图像$f_1(x,y)$，
     $f_2(x,y)$和$f_3(x,y)$。对每幅图像分别执行第2$\sim$7步。
     \STATE 填充图像：对$f_i(x,y)$填充必要数量的0，形成大小为$P\times Q$的填充后的图像
@@ -437,7 +437,7 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
     下标$p$用于表明$g_p(x,y)$是填充后的序列。
     \STATE 提取结果：从$g_p(x,y)$的左象限提取$M\times N$区域，得到该通道的滤波结
     果$g_i(x,y)$。
-    \STATE 合并通道：将三个单通道的滤波结果$g_1(x,y)$，$g_2(x,y)$和$g_3(x,y)$重新合成一幅彩色图像。
+    \STATE 合并通道：将三个单通道的滤波结果$g_1(x,y)$，$g_2(x,y)$和$g_3(x,y)$重新合成一幅彩色图像$g(x,y)$。
   \end{algorithmic}
 \end{algorithm}
 

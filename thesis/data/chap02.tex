@@ -206,36 +206,55 @@ Magnification, EVM）。2012 年，文献\cite{wu2012eulerian}提出了一种线
 颜色变化的结果，每一行右侧的图片代表视频中某条竖线的$YT$切片，该竖线的位置如图
 \ref{fig:color-motion-original}中最左侧子图的绿线所示。
 
+% \begin{figure}[htbp]
+%   \centering
+%     \subfloat[输入视频及$YT$切片]{%
+%       \label{fig:color-motion-original}
+%       \includegraphics[height=2.5cm]{face2-1.png}~
+%       \includegraphics[height=2.5cm]{face2-3.png}~
+%       \includegraphics[height=2.5cm]{face2-4.png}~
+%       \includegraphics[height=2.5cm]{face2-5.png}\qquad
+%       \scalebox{4}[1]{\includegraphics[height=2.5cm]{face2-slice.png}}
+%     }\\
+%     \subfloat[动作变化放大结果及$YT$切片]{%
+%       \label{fig:color-motion-motion}
+%       \includegraphics[height=2.5cm]{face2-motion-2.png}~
+%       \includegraphics[height=2.5cm]{face2-motion-3.png}~
+%       \includegraphics[height=2.5cm]{face2-motion-4.png}~
+%       \includegraphics[height=2.5cm]{face2-motion-5.png}\qquad
+%       \scalebox{4}[1]{\includegraphics[height=2.5cm]{face2-motion-slice.png}}
+      
+%     }\\
+%     \subfloat[颜色变化放大结果及$YT$切片]{%
+%       \label{fig:color-motion-color}
+%       \includegraphics[height=2.5cm]{face2-color-2.png}~
+%       \includegraphics[height=2.5cm]{face2-color-3.png}~
+%       \includegraphics[height=2.5cm]{face2-color-4.png}~
+%       \includegraphics[height=2.5cm]{face2-color-5.png}\qquad
+%       \scalebox{4}[1]{\includegraphics[height=2.5cm]{face2-color-slice.png}}
+%     }\\
+%   \caption{使用线性的欧拉影像动作放大方法放大动作变化和颜色变化的结果}
+%   \label{fig:color-motion}
+% \end{figure}
+
 \begin{figure}[htbp]
   \centering
     \subfloat[输入视频及$YT$切片]{%
       \label{fig:color-motion-original}
-      \includegraphics[height=2.5cm]{face2-1.png}~
-      \includegraphics[height=2.5cm]{face2-3.png}~
-      \includegraphics[height=2.5cm]{face2-4.png}~
-      \includegraphics[height=2.5cm]{face2-5.png}\qquad
-      \scalebox{4}[1]{\includegraphics[height=2.5cm]{face2-slice.png}}
+      \includegraphics[width=\textwidth]{motion-color-1.pdf}
     }\\
     \subfloat[动作变化放大结果及$YT$切片]{%
       \label{fig:color-motion-motion}
-      \includegraphics[height=2.5cm]{face2-motion-2.png}~
-      \includegraphics[height=2.5cm]{face2-motion-3.png}~
-      \includegraphics[height=2.5cm]{face2-motion-4.png}~
-      \includegraphics[height=2.5cm]{face2-motion-5.png}\qquad
-      \scalebox{4}[1]{\includegraphics[height=2.5cm]{face2-motion-slice.png}}
-      
+      \includegraphics[width=\textwidth]{motion-color-2.pdf}
     }\\
     \subfloat[颜色变化放大结果及$YT$切片]{%
       \label{fig:color-motion-color}
-      \includegraphics[height=2.5cm]{face2-color-2.png}~
-      \includegraphics[height=2.5cm]{face2-color-3.png}~
-      \includegraphics[height=2.5cm]{face2-color-4.png}~
-      \includegraphics[height=2.5cm]{face2-color-5.png}\qquad
-      \scalebox{4}[1]{\includegraphics[height=2.5cm]{face2-color-slice.png}}
+      \includegraphics[width=\textwidth]{motion-color-3.pdf}
     }\\
   \caption{使用线性的欧拉影像动作放大方法放大动作变化和颜色变化的结果}
   \label{fig:color-motion}
 \end{figure}
+
 
 欧拉影像放大技术的第一步是对视频序列进行空间滤波。该过程主要借助拉普拉斯金字
 塔\upcite{Burt1983}，以分解得到不同的空间频率的基带。其原因有如下两点：
@@ -259,14 +278,12 @@ Magnification, EVM）。2012 年，文献\cite{wu2012eulerian}提出了一种线
 带通滤波器可以依据具体的应用来选择。窄通带的滤波器，如理想带通滤波器，可以直接截
 取出感兴趣的频段，而避免放大其他频段，因而更适合用于需要对放大结果进行后续的时频
 分析（例如提取心率、分析乐器的频率）的场合；宽通带的滤波器，如Butterworth带通滤波
-器，二阶无限脉冲响应滤波器（Infinite Impulse Response Filter）等，可以更好的防止
+器，二阶无限脉冲响应滤波器（Infinite Impulse Response Filter）等，可以更好地防止
 振铃现象\cite{Gonzalez:2006:DIP:1076432}，且更易于实现实时操作，因而更适合用在实
 时性要求高，且不需要对放大结果进行时频分析的场合。
 
 表\ref{tab:filters}列举了文献\cite{wu2012eulerian}处理face、guitar、subway及
 wrist几个案例时所使用的滤波器。
-
-\clearpage
 
 \begin{table}[htbp]
   \centering
@@ -304,7 +321,6 @@ $x$在$t$时刻的灰度值，且初始值为$f(x)$，则有：
 其中，$\delta(t)$是变化信号。
 
 要得到这个动作放大$\alpha$倍后的结果，就是要得到：
-
 \begin{equation}
   \label{eq:2}
   \hat{I}(x,t)=f(x+(1+\alpha)\delta (t))
@@ -343,7 +359,7 @@ $\alpha$，再加回原来的信号中。即：
 \end{equation}
 
 如果变化信号$\delta(t)$的频率范围超出了所选的频段范围。这种情况下，应用带通滤波
-意味着只是保留了一部分的变化信号，而其他频率超出范围的信号将会被减弱。用$\gamma_k(t)$来表示在$t$时刻变化第$k$个变化信号减弱的倍数（$0\le \gamma_k \le
+意味着只是保留了一部分的变化信号，而其他频率超出范围的信号将会被减弱。用$\gamma_k(t)$来表示在$t$时刻第$k$个变化信号减弱的倍数（$0\le \gamma_k \le
 1$），则有：
 \begin{equation}
     \label{eq:8}
@@ -378,8 +394,6 @@ $\alpha$，再加回原来的信号中。即：
 其中，$\lambda$是当前基带的空间波长，即$\lambda=\frac{\pi}{\omega}$。公式
 \ref{eq:bound1}提供了计算每一层基带的合理放大倍数的准则。如图\ref{fig:guide}
 所示，当$\alpha$达到该界限时，就维持在该界限值。
-
-\clearpage
 
 \begin{figure}[htbp]
   \centering
@@ -442,8 +456,6 @@ $\alpha$，再加回原来的信号中。即：
 的“鬼影”现象，从而影响放大效果，如图\ref{fig:large-motion}所示。此外，对场景
 中的非感兴趣区域的放大也会影响对放大结果的后继分析，如心率提取等。
 
-\clearpage
-
 \begin{figure}[htbp]
   \centering
   \subfloat[线性的方法]{%
@@ -473,7 +485,7 @@ $\alpha$，再加回原来的信号中。即：
 
 然而，这个方法直接忽略了存在大幅度动作的物体，因而无法对大幅度动作中的物体的细节
 变化进行放大。而这类需求在实际生活中普遍存在，如放大一个移动中的人的脸部表情、颜
-色变化等，显然上述的策略无法适应这类需求。
+色变化等。
 
 %%% Local Variables: 
 %%% mode: latex

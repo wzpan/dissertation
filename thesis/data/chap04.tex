@@ -52,38 +52,45 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 \end{table}
 
 对视频分别进行全局的线性欧拉影像动作放大和本文所提出的前景约束的欧拉影像动作放大，
-结果如图\ref{fig:exam1-result}所示。其中，图\ref{fig:exam1-reference}最左侧子图的
+结果如图\ref{fig:exam1-result}所示。其中，图\ref{fig:exam1-result}(a)最左侧子图的
 绿框和黄线分别代表了实验所选择的感兴趣区域和XT切片所选取的位置。由XT切片可以看出，
 全局的线性动作变化放大算法会连同背景区域一起放大，对放大结果造成一定影响。
 
+% \begin{figure}[htbp]
+%   \centering
+%   \subfloat[输入视频及XT切片]{
+%     \label{fig:exam1-reference}
+%     \includegraphics[width=.3\textwidth]{video1-0.png}~
+%     \includegraphics[width=.3\textwidth]{video1-1.png}\qquad
+%     \includegraphics[width=.3\textwidth]{video1-XT.png}
+%   }\\
+%   \subfloat[全局的线性动作变化放大结果及XT切片]{
+%     \includegraphics[width=.3\textwidth]{video1-motion-linear-0.png}~
+%     \includegraphics[width=.3\textwidth]{video1-motion-linear-1.png}\qquad
+%     \includegraphics[width=.3\textwidth]{video1-motion-linear-XT.png}
+%   }\\
+%   \subfloat[前景约束的动作变化放大结果及XT切片]{
+%     \includegraphics[width=.3\textwidth]{video1-motion-fc-0.png}~
+%     \includegraphics[width=.3\textwidth]{video1-motion-fc-1.png}\qquad
+%     \includegraphics[width=.3\textwidth]{video1-motion-fc-XT.png}
+%   }\\
+%   \subfloat[全局的线性颜色变化放大结果及XT切片]{
+%     \includegraphics[width=.3\textwidth]{video1-color-linear-0.png}~
+%     \includegraphics[width=.3\textwidth]{video1-color-linear-1.png}\qquad
+%     \includegraphics[width=.3\textwidth]{video1-color-linear-XT.png}
+%   }\\
+%   \subfloat[前景约束的颜色变化放大结果及XT切片]{
+%     \includegraphics[width=.3\textwidth]{video1-color-fc-0.png}~
+%     \includegraphics[width=.3\textwidth]{video1-color-fc-1.png}\qquad
+%     \includegraphics[width=.3\textwidth]{video1-color-fc-XT.png}
+%   }
+%   \caption{实验一的放大结果}
+%   \label{fig:exam1-result}
+% \end{figure}
+
 \begin{figure}[htbp]
   \centering
-  \subfloat[输入视频及XT切片]{
-    \label{fig:exam1-reference}
-    \includegraphics[width=.3\textwidth]{video1-0.png}~
-    \includegraphics[width=.3\textwidth]{video1-1.png}\qquad
-    \includegraphics[width=.3\textwidth]{video1-XT.png}
-  }\\
-  \subfloat[全局的线性动作变化放大结果及XT切片]{
-    \includegraphics[width=.3\textwidth]{video1-motion-linear-0.png}~
-    \includegraphics[width=.3\textwidth]{video1-motion-linear-1.png}\qquad
-    \includegraphics[width=.3\textwidth]{video1-motion-linear-XT.png}
-  }\\
-  \subfloat[前景约束的动作变化放大结果及XT切片]{
-    \includegraphics[width=.3\textwidth]{video1-motion-fc-0.png}~
-    \includegraphics[width=.3\textwidth]{video1-motion-fc-1.png}\qquad
-    \includegraphics[width=.3\textwidth]{video1-motion-fc-XT.png}
-  }\\
-  \subfloat[全局的线性颜色变化放大结果及XT切片]{
-    \includegraphics[width=.3\textwidth]{video1-color-linear-0.png}~
-    \includegraphics[width=.3\textwidth]{video1-color-linear-1.png}\qquad
-    \includegraphics[width=.3\textwidth]{video1-color-linear-XT.png}
-  }\\
-  \subfloat[前景约束的颜色变化放大结果及XT切片]{
-    \includegraphics[width=.3\textwidth]{video1-color-fc-0.png}~
-    \includegraphics[width=.3\textwidth]{video1-color-fc-1.png}\qquad
-    \includegraphics[width=.3\textwidth]{video1-color-fc-XT.png}
-  }
+  \includegraphics[width=.95\textwidth]{video1-result.pdf}
   \caption{实验一的放大结果}
   \label{fig:exam1-result}
 \end{figure}
@@ -131,40 +138,47 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 \end{table}
 
 图\ref{fig:exam2-result}给出了两种方法的实验结果对比。
-图\ref{fig:exam2-reference}最左侧子图的绿框和黄线分别代表了实验所选择的感兴趣区域
+图\ref{fig:exam2-result}(a)最左侧子图的绿框和黄线分别代表了实验所选择的感兴趣区域
 和XT切片所选取的位置。由于该实验对象的运动幅度较大，此时直接进行全局的动作放大会
 出现明显的“鬼影”问题，且颜色变化的放大结果也受到了该实验对象身体的移动的影响，
 导致无法正确地放大其脸部颜色的变化。而前景约束的动作放大则可以在避免对身体移动的
 放大的同时有效地放大脸部的动作变化和颜色变化。
 
+% \begin{figure}[htbp]
+%   \centering
+%   \subfloat[输入视频及XT切片]{
+%     \label{fig:exam2-reference}
+%     \includegraphics[height=3.3cm]{video2-0.png}~
+%     \includegraphics[height=3.3cm]{video2-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-XT.png}}
+%   }\\
+%   \subfloat[全局的线性动作变化放大结果及XT切片]{
+%     \includegraphics[height=3.3cm]{video2-motion-linear-0.png}~
+%     \includegraphics[height=3.3cm]{video2-motion-linear-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-motion-linear-XT.png}}
+%   }\\
+%   \subfloat[前景约束的动作变化放大结果及XT切片]{
+%     \includegraphics[height=3.3cm]{video2-motion-fc-0.png}~
+%     \includegraphics[height=3.3cm]{video2-motion-fc-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-motion-fc-XT.png}}
+%   }\\
+%   \subfloat[全局的线性颜色变化放大结果及XT切片]{
+%     \includegraphics[height=3.3cm]{video2-color-linear-0.png}~
+%     \includegraphics[height=3.3cm]{video2-color-linear-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-color-linear-XT.png}}
+%   }\\
+%   \subfloat[前景约束的颜色变化放大结果及XT切片]{
+%     \includegraphics[height=3.3cm]{video2-color-fc-0.png}~
+%     \includegraphics[height=3.3cm]{video2-color-fc-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-color-fc-XT.png}}
+%   }
+%   \caption{实验二的放大结果}
+%   \label{fig:exam2-result}
+% \end{figure}
+
 \begin{figure}[htbp]
   \centering
-  \subfloat[输入视频及XT切片]{
-    \label{fig:exam2-reference}
-    \includegraphics[height=3.3cm]{video2-0.png}~
-    \includegraphics[height=3.3cm]{video2-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-XT.png}}
-  }\\
-  \subfloat[全局的线性动作变化放大结果及XT切片]{
-    \includegraphics[height=3.3cm]{video2-motion-linear-0.png}~
-    \includegraphics[height=3.3cm]{video2-motion-linear-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-motion-linear-XT.png}}
-  }\\
-  \subfloat[前景约束的动作变化放大结果及XT切片]{
-    \includegraphics[height=3.3cm]{video2-motion-fc-0.png}~
-    \includegraphics[height=3.3cm]{video2-motion-fc-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-motion-fc-XT.png}}
-  }\\
-  \subfloat[全局的线性颜色变化放大结果及XT切片]{
-    \includegraphics[height=3.3cm]{video2-color-linear-0.png}~
-    \includegraphics[height=3.3cm]{video2-color-linear-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-color-linear-XT.png}}
-  }\\
-  \subfloat[前景约束的颜色变化放大结果及XT切片]{
-    \includegraphics[height=3.3cm]{video2-color-fc-0.png}~
-    \includegraphics[height=3.3cm]{video2-color-fc-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video2-color-fc-XT.png}}
-  }
+  \includegraphics[width=.9\textwidth]{video2-result.pdf}
   \caption{实验二的放大结果}
   \label{fig:exam2-result}
 \end{figure}
@@ -205,39 +219,51 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 \end{table}
 
 图\ref{fig:exam3-result}给出了两种方法的实验结果对比。
-图\ref{fig:exam3-reference}最左侧子图的绿框和黄线分别代表了实验所选择的感兴趣区域
+图\ref{fig:exam3-result}(a)最左侧子图的绿框和黄线分别代表了实验所选择的感兴趣区域
 和YT切片所选取的位置。和实验一类似，使用本文提出的前景约束的方法可以避免对背景区
 域的放大。实验三的结果进一步说明了即使场景中不存在明显的动作，使用本文的算法也可
 以得到比全局的放大方法更好的实验结果。
 
+% \begin{figure}[htbp]
+%   \centering
+%   \subfloat[输入视频及YT切片]{
+%     \label{fig:exam3-reference}
+%     \includegraphics[height=3.3cm]{video3-0.png}~
+%     \includegraphics[height=3.3cm]{video3-1.png}~
+%     \includegraphics[height=3.3cm]{video3-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-YT.png}}
+%   }\\
+%   \subfloat[全局的线性动作变化放大结果及YT切片]{
+%     \includegraphics[height=3.3cm]{video3-motion-linear-0.png}~
+%     \includegraphics[height=3.3cm]{video3-motion-linear-1.png}~
+%     \includegraphics[height=3.3cm]{video3-motion-linear-0.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-motion-linear-YT.png}}
+%   }\\
+%   \subfloat[前景约束的动作变化放大结果及YT切片]{
+%     \includegraphics[height=3.3cm]{video3-motion-fc-0.png}~
+%     \includegraphics[height=3.3cm]{video3-motion-fc-1.png}~
+%     \includegraphics[height=3.3cm]{video3-motion-fc-0.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-motion-fc-YT.png}}
+%   }\\
+%   \subfloat[全局的线性颜色变化放大结果及YT切片]{
+%     \includegraphics[height=3.3cm]{video3-color-linear-0.png}~
+%     \includegraphics[height=3.3cm]{video3-color-linear-1.png}~
+%     \includegraphics[height=3.3cm]{video3-color-linear-0.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-color-linear-YT.png}}
+%   }\\
+%   \subfloat[前景约束的颜色变化放大结果及YT切片]{
+%     \includegraphics[height=3.3cm]{video3-color-fc-0.png}~
+%     \includegraphics[height=3.3cm]{video3-color-fc-1.png}~
+%     \includegraphics[height=3.3cm]{video3-color-fc-0.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-color-fc-YT.png}}
+%   }
+%   \caption{实验三的放大结果}
+%   \label{fig:exam3-result}
+% \end{figure}
+
 \begin{figure}[htbp]
   \centering
-  \subfloat[输入视频及YT切片]{
-    \label{fig:exam3-reference}
-    \includegraphics[height=3.3cm]{video3-0.png}~
-    \includegraphics[height=3.3cm]{video3-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-YT.png}}
-  }\\
-  \subfloat[全局的线性动作变化放大结果及YT切片]{
-    \includegraphics[height=3.3cm]{video3-motion-linear-0.png}~
-    \includegraphics[height=3.3cm]{video3-motion-linear-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-motion-linear-YT.png}}
-  }\\
-  \subfloat[前景约束的动作变化放大结果及YT切片]{
-    \includegraphics[height=3.3cm]{video3-motion-fc-0.png}~
-    \includegraphics[height=3.3cm]{video3-motion-fc-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-motion-fc-YT.png}}
-  }\\
-  \subfloat[全局的线性颜色变化放大结果及YT切片]{
-    \includegraphics[height=3.3cm]{video3-color-linear-0.png}~
-    \includegraphics[height=3.3cm]{video3-color-linear-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-color-linear-YT.png}}
-  }\\
-  \subfloat[前景约束的颜色变化放大结果及YT切片]{
-    \includegraphics[height=3.3cm]{video3-color-fc-0.png}~
-    \includegraphics[height=3.3cm]{video3-color-fc-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video3-color-fc-YT.png}}
-  }
+  \includegraphics[height=.95\textheight]{video3-result.pdf}
   \caption{实验三的放大结果}
   \label{fig:exam3-result}
 \end{figure}
@@ -273,8 +299,8 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 了前景分割。在使用本文的算法进行第二次动作放大时，处理速度达49帧/秒。
 
 图\ref{fig:exam4-result}给出了两步放大的结果。其中，
-图\ref{fig:exam4-reference-1}和图\ref{fig:exam4-reference-2}最左侧子图的黄线都代
-表了该图的YT切片所选取的位置。图\ref{fig:exam4-reference-2}最左侧子图的绿线代表
+图\ref{fig:exam4-result}(a)和图\ref{fig:exam4-result}(c)最左侧子图的黄线都代
+表了该图的YT切片所选取的位置。图\ref{fig:exam4-result}(c)最左侧子图的绿框代表
 了所选择的感兴趣区域。
 
 从图\ref{fig:exam4-result}中可知，经过两步放大后，地面的震动和膝盖部位的光线变化
@@ -284,26 +310,33 @@ $w_l$和$w_h$是带通滤波的下界和上界，$f_s$是视频的帧率。
 
 \clearpage
 
+% \begin{figure}[htbp]
+%   \centering
+%   \subfloat[输入视频及YT切片]{
+%     \label{fig:exam4-reference-1}
+%     \includegraphics[height=3.3cm]{video4-0.png}~
+%     \includegraphics[height=3.3cm]{video4-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video4-YT.png}}
+%   }\\
+%   \subfloat[基于相位的动作放大结果及YT切片]{
+%     \includegraphics[height=3.3cm]{video4-phase-0.png}~
+%     \includegraphics[height=3.3cm]{video4-phase-1.png}\qquad
+%     \scalebox{2}[1]{\includegraphics[height=3.3cm]{video4-phase-YT.png}}
+%   }\\
+%   \subfloat[前景约束的动作变化放大结果及放大前后的YT切片]{
+%     \label{fig:exam4-reference-2}
+%     \includegraphics[height=3.3cm]{video4-fc-0.png}~
+%     \includegraphics[height=3.3cm]{video4-fc-1.png}\qquad
+%     \includegraphics[height=3.3cm]{video4-fc-YT-before.png}\qquad
+%     \includegraphics[height=3.3cm]{video4-fc-YT-after.png}
+%   }\\
+%   \caption{实验四的放大结果}
+%   \label{fig:exam4-result}
+% \end{figure}
+
 \begin{figure}[htbp]
   \centering
-  \subfloat[输入视频及YT切片]{
-    \label{fig:exam4-reference-1}
-    \includegraphics[height=3.3cm]{video4-0.png}~
-    \includegraphics[height=3.3cm]{video4-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video4-YT.png}}
-  }\\
-  \subfloat[基于相位的动作放大结果及YT切片]{
-    \includegraphics[height=3.3cm]{video4-phase-0.png}~
-    \includegraphics[height=3.3cm]{video4-phase-1.png}\qquad
-    \scalebox{2}[1]{\includegraphics[height=3.3cm]{video4-phase-YT.png}}
-  }\\
-  \subfloat[前景约束的动作变化放大结果及放大前后的YT切片]{
-    \label{fig:exam4-reference-2}
-    \includegraphics[height=3.3cm]{video4-fc-0.png}~
-    \includegraphics[height=3.3cm]{video4-fc-1.png}\qquad
-    \includegraphics[height=3.3cm]{video4-fc-YT-before.png}\qquad
-    \includegraphics[height=3.3cm]{video4-fc-YT-after.png}
-  }\\
+  \includegraphics[width=\textwidth]{video4-result.pdf}
   \caption{实验四的放大结果}
   \label{fig:exam4-result}
 \end{figure}

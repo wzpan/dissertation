@@ -168,6 +168,16 @@
 <attribute NAME="title" VALUE="Fourier principles for emotion-based human figure animation"/>
 <attribute NAME="year" VALUE="1995"/>
 </node>
+<node TEXT="wiley-motion.pdf" ID="ID_1862497179" CREATED="1398548150623" MODIFIED="1398548150625" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/motion%20related/wiley-motion.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="20BD1CA75BF7342B3176A41AF57C37FA4C66D584B64E7D57D19358E2D283">
+    <pdf_title>Interpolation Synthesis of Articulated Figure Motion</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Wiley1997"/>
+<attribute NAME="journal" VALUE="Computer Graphics and Applications, IEEE"/>
+<attribute NAME="authors" VALUE="Wiley, Douglas J and Hahn, James K"/>
+<attribute NAME="title" VALUE="Interpolation synthesis of articulated figure motion"/>
+<attribute NAME="year" VALUE="1997"/>
+</node>
 </node>
 <node TEXT="&#x901a;&#x8fc7;&#x5206;&#x6790;&#x89c6;&#x9891;&#x7684;&#x52a8;&#x4f5c;&#x4fe1;&#x606f;&#x6765;&#x5408;&#x6210;&#x8f93;&#x51fa;" ID="ID_917196222" CREATED="1397404577053" MODIFIED="1397404622946">
 <node TEXT="Motion Based decomposition of video" ID="ID_503028815" CREATED="1397404628502" MODIFIED="1397404729576">
@@ -195,7 +205,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="Video textures" ID="ID_1300374992" CREATED="1397404661531" MODIFIED="1397404784518"><richcontent TYPE="DETAILS">
+<node TEXT="Video textures" ID="ID_1300374992" CREATED="1397404661531" MODIFIED="1398616000924"><richcontent TYPE="DETAILS">
 
 <html>
   <head>
@@ -210,6 +220,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="p489-schodl.pdf" ID="ID_1173865366" CREATED="1397404990680" MODIFIED="1397404990680" LINK="project://14223ED6B204XZ7HK1OLS7L46MGUH3MY3P4D/literature_repository/motion%20related/p489-schodl.pdf">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="A516FA5689AB32AAC1A21BEC1BB85E1D83732416123F85B2915F9142B36C">
