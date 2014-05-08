@@ -185,7 +185,7 @@ $$
 状态向量$X_k$的估计。过程如算法\ref{alg:kalman}所示。
 
 \begin{algorithm}[htbp]
-  \caption{Kalman 滤波}
+  \caption{Kalman滤波}
   \label{alg:kalman}
   \begin{algorithmic}[1]
     \STATE 初始化：
@@ -320,15 +320,15 @@ GrabCut的以上几点特性，尤其是不完全标注的特性，使其非常�
 
 为了抑制噪声，上述两种方法在进行动作放大前，先将视频的每一帧图像由RGB颜色空间转
 换为YIQ色彩空间\upcite{buchsbaum1968color}。YIQ是NTSC电视机系统所采用的颜色
-空间，其中，Y 是亮度信号，I和Q是色相信号。然后分别对Y、I、Q三个通道的进行时
+空间，其中，Y是亮度信号，I和Q是色相信号。然后分别对Y、I、Q三个通道的进行时
 频处理。之后，引入一个衰减因子$\mu$（$0\le \mu \le 1$）衰减I、Q两个通道的变化。
 如果要放大动作的变化，可以让$\mu$取一个接近0的值，减少对颜色变化的放大，从而
 抑制颜色噪点；如果要放大颜色的变化，则可以让$\mu$取一个接近1的值。
 
 与上述方法不同，本文在进行动作放大前，并不将图像从RGB颜色空间转为YIQ色彩空间，
-而是转为更感知均匀的 CIEL*a*b* 颜色空间\upcite{mcguire1992reporting}。其中，L* 分
-量密切匹配人类亮度感知，a* 和 b* 分量则分别为红/绿和黄/蓝对立通道。L*、a* 和 b*
-的非线性关系可以模仿人眼的非线性响应。图\ref{fig:cielab}是 CIEL*a*b* 颜色空间的
+而是转为更感知均匀的CIEL*a*b*颜色空间\upcite{mcguire1992reporting}。其中，L*分
+量密切匹配人类亮度感知，a*和b*分量则分别为红/绿和黄/蓝对立通道。L*、a* 和 b*
+的非线性关系可以模仿人眼的非线性响应。图\ref{fig:cielab}是CIEL*a*b*颜色空间的
 一个彩色模型图。
 
 \begin{figure}[htbp]
