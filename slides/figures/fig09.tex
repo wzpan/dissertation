@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,multirow,multicol,keystroke,subfigure}
+
+% CJK packages
+\usepackage{xeCJK}
+\setCJKmainfont{SimHei}
+
+\usepackage{tikz}
+\usepackage[xelatex,active,tightpage]{preview}
+
+\setlength\PreviewBorder{0mm}
+\PreviewEnvironment{tikzpicture}
+
+\usetikzlibrary{arrows,shapes.misc,positioning,calc,chains,scopes}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+  \tiny
+  \draw[gray,->] (-2,0)--(2,0);
+  \draw[gray,->] (0,-1.5)--(0,1.5);
+  \foreach \y in {-1,-0.5,0.5,1}
+  {
+    \draw [xshift=-0.3cm] (0,\y) node{$\y$};
+    \draw (0,\y)--(0.05,\y);
+  }
+  \foreach \x in {-1.5,-1,-0.5,0.5,1,1.5}
+  {
+    \draw [yshift=-0.2cm] (\x,0) node{$\x$};
+    \draw (\x,0)--(\x,0.05);
+  }
+  \fill (0,0) circle(1pt);
+  \draw (-0.1cm,-0.1cm) node {$0$};
+  \draw[gray,dashed] (-2,1)--(2,1);
+  \draw[thick,color=blue] plot[domain={-2:2}] (\x,{1/(1+exp(-\x))}) ;
+\end{tikzpicture}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,multirow,multicol,keystroke,subfigure}
+
+% CJK packages
+\usepackage{xeCJK}
+\setCJKmainfont{SimHei}
+
+\usepackage{tikz}
+\usepackage[xelatex,active,tightpage]{preview}
+
+\setlength\PreviewBorder{0mm}
+\PreviewEnvironment{tikzpicture}
+
+\usetikzlibrary{arrows,shapes.misc,positioning,calc,chains,scopes}
+
+\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12,inner sep=4]
+\tikzstyle{input neuron}=[neuron, fill=green!25, draw=green!70]
+\tikzstyle{output neuron}=[neuron, fill=blue!25, draw=blue!70]
+\tikzstyle{hidden neuron}=[neuron, fill=red!25, draw=red!70]
+\tikzstyle{small neuron}=[circle, minimum size=6, inner sep=2, fill=blue!25, draw=blue!70]
+\tikzstyle{A neuron}=[circle, minimum size=6, inner sep=0, fill=green!25, draw=green!70]
+\tikzstyle{B neuron}=[circle, minimum size=6, inner sep=0, fill=red!25, draw=red!70]
+\tikzstyle{ouput box}=[rectangle, fill=blue!25, draw=blue!70, minimum size=12, inner sep=4]
+\tikzstyle{hidden box}=[rectangle, fill=red!25, draw=red!70, minimum size=12, inner sep=4]
+\tikzstyle{thickarrow}=[thick,>=stealth]
+\tikzstyle{connect}=[thin]
+
+\begin{document}
+
+\def\layersep{1cm}
+
+\begin{tikzpicture}[->,thick]
+
+    \node (I-1) at (-3, 2) {$x_1$};    
+    \node (I-i) at (-3, 0) {$x_i$};
+    \node (I-n) at (-3, -2) {$x_n$};
+
+    \node [rotate=90] at (-3,1) {\ldots};
+    \node [rotate=90] at (-3,-1) {\ldots};
+
+    \node (e-1) at (150:1){};
+    \node (e-i) at (180:1){};
+    \node (e-n) at (210:1){};
+    
+    \draw (I-1) -- node[above]{$\omega_{1j}$}(e-1);
+    \draw (I-i) -- node[above]{$\omega_{ij}$}(e-i);
+    \draw (I-n) -- node[above]{$\omega_{nj}$}(e-n);    
+
+    \fill[green!25] (0,1) arc (90:270:1);
+    \fill[blue!25] (0,-1) arc (-90:90:1);
+    
+    \draw (0,0) circle (1);
+
+    \draw[-] (0,1) -- (0,-1);
+
+    \node at (-0.5, 0) {$\sum$};
+    \node at (0.5, 0) {$f$};
+
+    \node (o) at (2.5,0){};
+
+    \draw (1,0) -- (o)node[above]{$O_j$};
+    
+\end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

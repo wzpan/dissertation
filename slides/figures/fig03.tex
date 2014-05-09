@@ -1,0 +1,200 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,multirow,multicol,keystroke,subfigure}
+
+% CJK packages
+\usepackage{xeCJK}
+\setCJKmainfont{SimHei}
+
+\usepackage{tikz}
+\usepackage[xelatex,active,tightpage]{preview}
+
+\setlength\PreviewBorder{0mm}
+\PreviewEnvironment{tabular}
+
+\usetikzlibrary{arrows,shapes.misc,positioning,calc,chains,scopes}
+
+\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12,inner sep=4]
+\tikzstyle{input neuron}=[neuron, fill=green!25, draw=green!70]
+\tikzstyle{output neuron}=[neuron, fill=blue!25, draw=blue!70]
+\tikzstyle{hidden neuron}=[neuron, fill=red!25, draw=red!70]
+\tikzstyle{small neuron}=[circle, minimum size=6, inner sep=2, fill=blue!25, draw=blue!70]
+\tikzstyle{A neuron}=[circle, minimum size=6, inner sep=0, fill=green!25, draw=green!70]
+\tikzstyle{B neuron}=[circle, minimum size=6, inner sep=0, fill=red!25, draw=red!70]
+\tikzstyle{ouput box}=[rectangle, fill=blue!25, draw=blue!70, minimum size=12, inner sep=4]
+\tikzstyle{hidden box}=[rectangle, fill=red!25, draw=red!70, minimum size=12, inner sep=4]
+\tikzstyle{thickarrow}=[thick,>=stealth]
+\tikzstyle{connect}=[thin]
+
+\begin{document}
+
+
+  \begin{tabular}[t]{c|l|c|c}
+    \hline
+    结构 &  \hspace{5em} 决策区域类型  & 区域形状 & 异或问题 \\
+    \hline
+    \begin{tikzpicture}[node distance=0.5 and 0.5]
+      \tiny
+      \node (A)[small neuron]{};
+      \node (B)[small neuron,right=of A]{};
+
+      \node (X) at ($ (A)!.5!(B) $) {};
+
+      \node (C)[small neuron,label=above:无隐层] at ($ (X) ! {sin(60)*2} ! 90:(B) $) {}
+      edge[<-](A)
+      edge[<-](B);
+    \end{tikzpicture}
+    &
+    由一超平面分成两个
+    &
+    \begin{tikzpicture}
+      \draw (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+      \fill [black] (0,0)--(1,0)--(1,0.2)--(0.2,0.8)--(0,0.8)--cycle;
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}
+      \tiny
+      \begin{scope}
+        \shadedraw[clip,top color=gray,bottom color=blue!10]
+        (0,0.3)--(0.7,1)--(0,1)--cycle;
+        \foreach \x in {0.1,0.2,...,1.0}
+        \draw[rotate=45] (\x,2) -- (\x,-2);
+      \end{scope}
+      \node [A neuron] at (0.25,0.75){A};
+      \node [A neuron] at (0.75,0.25){A};
+
+      \node [B neuron] at (0.75,0.75){B};
+      \node [B neuron] at (0.25,0.25){B};
+
+      \draw (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+    \end{tikzpicture}
+    \\
+    \hline
+    \begin{tikzpicture}[node distance=0.2 and 0.4]
+      \tiny
+      \node (A)[small neuron]{};
+      \node (B)[small neuron,right=of A]{};
+
+      \node (E)[small neuron,below=of A]{}
+      edge[->](A)
+      edge[->](B);
+      \node (F)[small neuron,right=of E]{}
+      edge[->](A)
+      edge[->](B);
+
+      \node (X) at ($ (A)!.5!(B) $) {};
+
+      \node (C)[small neuron,label=above:单隐层,yshift=10] at (X) {}
+      edge[<-](A)
+      edge[<-](B);
+    \end{tikzpicture}
+    & 开凸区域或闭凸区域
+    &
+    \begin{tikzpicture}
+      \draw (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+      \fill (0,0)--(1,0)--(0.3,0.4)--(0.2,0.6)--(0.5,1)--(0,1)--cycle;
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}
+      \tiny
+      \begin{scope}
+        \shadedraw[clip,top color=gray,bottom color=blue!10]
+        (0,0.7)--(0.7,0)--(1,0)--(1,0.3)--(0.3,1)--(0,1)--cycle;
+        \foreach \x in {-1.0,-0.9,...,1.0}
+        \draw[rotate=135] (\x,2) -- (\x,-2);
+      \end{scope}
+      \node [A neuron] at (0.25,0.75){A};
+      \node [A neuron] at (0.75,0.25){A};
+
+      \node [B neuron] at (0.75,0.75){B};
+      \node [B neuron] at (0.25,0.25){B};
+
+      \draw (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+    \end{tikzpicture}
+    \\
+    \hline
+    \begin{tikzpicture}[node distance=0.2 and 0.4]
+      \tiny
+      \node (i1)[small neuron]{};
+      \node (i2)[small neuron,right=of i1]{};
+
+      \node (X) at ($ (i1)!.5!(i2) $) {};
+
+      \node (h1)[small neuron,above left=of i1]{}
+      edge[<-](i1)
+      edge[<-](i2);
+
+      \node (h2)[small neuron,above=of X]{}
+      edge[<-](i1)
+      edge[<-](i2);
+
+      \node (h3)[small neuron,above right=of i2]{}
+      edge[<-](i1)
+      edge[<-](i2);
+
+      \node (H1)[small neuron,above=of i1,yshift=10]{}
+      edge[<-](h1)
+      edge[<-](h2)
+      edge[<-](h3);
+
+      \node (H2)[small neuron,above=of i2,yshift=10]{}
+      edge[<-](h1)
+      edge[<-](h2)
+      edge[<-](h3);
+
+      \node (O)[small neuron, above=of h2,yshift=10,label=above:双隐层]{}
+      edge[<-](H1)
+      edge[<-](H2);
+
+
+    \end{tikzpicture}
+    &
+    任意形状（其复杂度由单元数目确定）
+    &
+    \begin{tikzpicture}
+      \tiny
+      \fill (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+      \fill [white] (0.2,0.6)--(0.23,0.57)--(0.4,0.7)
+      --(0.27,0.8)--(0.21,0.75)--(0.16,0.73)--cycle;
+      \fill [white] (0.6,0.18)--(0.8,0.15)--(0.9,0.2)--(0.92,0.43)
+      --(0.8,0.65)--(0.65,0.6)--(0.7,0.43)--(0.5,0.35)--cycle;
+      \fill (0.65,0.26)--(0.78,0.22)--(0.88,0.35)--(0.8,0.45)
+      --(0.7,0.40)--cycle;
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}
+      \tiny
+      \begin{scope}
+        \shadedraw[clip,top color=gray,bottom color=blue!10]
+        (0.05,0.85)--(0.02,0.5)--(0.45,0.6)--(0.35,0.92)--cycle;
+        \foreach \x in {-1.0,-0.9,...,1.0}
+        \draw[rotate=135] (\x,2) -- (\x,-2);
+      \end{scope}
+      \begin{scope}
+        \shadedraw[clip,top color=gray,bottom color=blue!10]
+        (0.55,0)--(1,0)--(1,0.4)--(0.75,0.5)--(0.5,0.45)--cycle;
+        \foreach \x in {-1.0,-0.9,...,1.0}
+        \draw[rotate=135] (\x,2) -- (\x,-2);
+      \end{scope}
+
+      \node [A neuron] at (0.25,0.75){A};
+      \node [A neuron] at (0.75,0.25){A};
+
+      \node [B neuron] at (0.75,0.75){B};
+      \node [B neuron] at (0.25,0.25){B};
+
+      \draw (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+    \end{tikzpicture}
+    \\
+    \hline
+  \end{tabular}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

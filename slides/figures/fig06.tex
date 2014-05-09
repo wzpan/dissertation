@@ -1,0 +1,208 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,multirow,multicol,keystroke,subfigure}
+
+
+% CJK packages
+\usepackage{xeCJK}
+\setCJKmainfont{SimHei}
+
+\usepackage{tikz}
+\usepackage[xelatex,active,tightpage]{preview}
+\setlength\PreviewBorder{0mm}
+\PreviewEnvironment{tikzpicture}
+
+\usetikzlibrary{arrows,shapes.misc,positioning,calc,chains,scopes}
+
+
+\tikzset{
+	layer/.style={
+		% The shape:
+		rectangle,
+		% The size:
+		minimum size=6mm,
+		% The border:
+		very thick,
+		draw=black!50,
+		top color=white,bottom color=black!20,
+		% Font
+		font=\itshape
+	}
+}
+\tikzset{
+	signal/.style={
+		% The shape:
+		circle,
+		minimum size=6mm,
+		% The rest
+		very thick,
+		draw=green!50!black!50,
+		top color=white,
+		bottom color=green!50!black!20, % and something else at the bottom
+		rotate=45,
+		font=\ttfamily
+	}
+}
+
+\tikzset{
+	conclude/.style={
+		% The shape:
+		circle,
+		minimum size=6mm,
+		% The rest
+		very thick,
+		draw=red!50!black!50,
+		top color=white,
+		bottom color=red!50!black!20, % and something else at the bottom
+		font=\ttfamily
+	}
+}
+\begin{document}
+
+\begin{tikzpicture}[point/.style={coordinate},
+>=stealth,thick,draw=black!50,
+tip/.style={->,shorten >=1pt},
+layertip/.style={|<->|,shorten >=1pt},
+signalcross/.style={green!50!black!50,very thick}]
+\matrix[column sep=4mm,row sep=8mm,ampersand replacement=\&] {
+	% First row:
+	\node (A00) [point]{}; \&
+	\node (A0) [point,label=above:$X$] {}; \& 	\node (A1) [layer] {$V$}; 	     \&
+	\node (A2) [point,label=above:$V^TX$,label=below:$\Delta V$] {}; \&	\node (A3) [layer] {$f(V^TX)$}; \&
+	\node (A4) [point] {}; \&
+	\node (A5) [point] {}; 		 \&
+
+	\node (A6) [layer] {$W$}; 	\&
+	\node (A7) [point,label=above:$W^TY$,label=below:$\Delta W$] {}; \&
+	\node (A8) [layer] {$f(W^TY)$}; \&
+	\node (A9) [point,label=above:$O'$] {}; \&
+	\node (A10) [point] {};  \\
+	% Second row:
+	\& \& \& \&
+	\node (B3) [point]{};\&
+	\node (B4) [point]{}; \&
+	\&
+	\node (B6) [signal]{};
+	\draw[signalcross] (B6.west)--(B6.east);
+	\draw[signalcross] (B6.north)--(B6.south);\&
+	\node (B7) [point,label=right:$\eta$]{}; \&
+	\node (B8) [point,label=right:$f'(net_k)$]{}; \&
+	 \& \& \\
+	% Third row:
+	\&
+	\node (C0) [point]{};  \&
+	\node (C1) [signal]{};
+	\draw[signalcross] (C1.west)--(C1.east);
+	\draw[signalcross] (C1.north)--(C1.south);	\&
+	\&
+	\node (C3) [signal]{};
+	\draw[signalcross] (C3.west)--(C3.east);
+	\draw[signalcross] (C3.north)--(C3.south);\&
+	\&
+	\node (C5) [signal]{};
+	\draw[signalcross] (C5.west)--(C5.east);
+	\draw[signalcross] (C5.north)--(C5.south);\&
+	\node (C6) [point]{};	\&
+	\&
+	\node (C8) [signal]{};
+	\draw[signalcross] (C8.west)--(C8.east);
+	\draw[signalcross] (C8.north)--(C8.south);\&
+	\node (C9) [conclude,label=north east:$-$,label=south east:$+$]{};	\&
+	\node (C10) [point,label=right:$d$]{}; \\
+};
+
+{ [start chain]
+	\chainin (A00);
+	\chainin (A0) [join];
+	\chainin (A1) [join=by tip];
+	\chainin (A2) [join];
+	\chainin (A3) [join=by tip];
+	\chainin (A4) [join];
+	\chainin (A5) [join];
+	\chainin (A6) [join=by tip];
+	\chainin (A7) [join];
+	\chainin (A8) [join=by tip];
+	\chainin (A9) [join];
+	\chainin (A10) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (A4);
+	\chainin (B4) [join];
+	\chainin (B6) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (A0);
+	\chainin (C0) [join];
+	\chainin (C1) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (C1);
+	\chainin (A1) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (C10);
+	\chainin (C9) [join=by tip];
+	\chainin (C8) [join=by tip];
+	\chainin (C5) [join=by tip];
+	\chainin (C3) [join=by tip];
+	\chainin (C1) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (C6);
+	\chainin (B6) [join];
+	\chainin (A6) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (B7);
+	\chainin (B6) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (A8);
+	\chainin (C8) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (A9);
+	\chainin (C9) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (A3);
+	\chainin (B3)[join,label=left:$f'(net_j)$];
+	\chainin (C3) [join=by tip];
+}
+
+{ [start chain]
+	\chainin (A6);
+	\chainin (A5) [join];
+	\chainin (C5) [join=by tip] node[right,yshift=-4mm]{$W$};
+}
+
+	\node [label=above:$Y$] at ($($(A4)!0.5!(A5)$)+(1mm,-1mm)$) {};
+	\node [label=below:$d-O$] at ($($(C8)!0.5!(C9)$)+(1mm,0)$) {};
+	\node [label=below:$\delta^o$] at ($($(C5)!0.5!(C8)$)+(1mm,0)$) {};
+	\node [label=below:$\delta^y$] at ($($(C1)!0.5!(C3)$)+(1mm,0)$) {};
+	\node at (C1)[yshift=-8mm]{$\eta$}
+		edge[tip](C1);
+	\draw [layertip] ($(A1.west)+(0,8mm)$)--node[fill=white]{隐层}($(A3.east)+(0,8mm)$);
+	\draw [layertip] ($(A6.west)+(0,8mm)$)--node[fill=white]{输出层}($(A8.east)+(0,8mm)$);
+
+\end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

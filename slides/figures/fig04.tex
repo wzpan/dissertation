@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,multirow,multicol,keystroke,subfigure}
+
+% CJK packages
+\usepackage{xeCJK}
+\setCJKmainfont{SimHei}
+
+\usepackage{tikz}
+\usepackage[xelatex,active,tightpage]{preview}
+
+\setlength\PreviewBorder{0mm}
+\PreviewEnvironment{tikzpicture}
+
+\usetikzlibrary{arrows,shapes.misc,positioning,calc,chains,scopes}
+
+\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12,inner sep=4]
+\tikzstyle{input neuron}=[neuron, fill=green!25, draw=green!70]
+\tikzstyle{output neuron}=[neuron, fill=blue!25, draw=blue!70]
+\tikzstyle{hidden neuron}=[neuron, fill=red!25, draw=red!70]
+\tikzstyle{small neuron}=[circle, minimum size=6, inner sep=2, fill=blue!25, draw=blue!70]
+\tikzstyle{A neuron}=[circle, minimum size=6, inner sep=0, fill=green!25, draw=green!70]
+\tikzstyle{B neuron}=[circle, minimum size=6, inner sep=0, fill=red!25, draw=red!70]
+\tikzstyle{ouput box}=[rectangle, fill=blue!25, draw=blue!70, minimum size=12, inner sep=4]
+\tikzstyle{hidden box}=[rectangle, fill=red!25, draw=red!70, minimum size=12, inner sep=4]
+\tikzstyle{thickarrow}=[thick,>=stealth]
+\tikzstyle{connect}=[thin]
+
+\begin{document}
+
+\def\layersep{1cm}
+
+\begin{tikzpicture}[shorten >=1pt,->,draw=black!50,
+node distance=\layersep,scale=0.7]
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt]
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+    % Draw the input layer nodes
+    \foreach \name / \y in {1,...,2}
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+        \node[input neuron, pin=left:$x_\y$] (I-\name) at (0,-\y) {};
+	\node[input neuron, pin=left:$x_n$] (I-3) at (0,-4) {};
+
+    % Draw the 1st level hidden layer nodes
+	\foreach \name / \y in {1,...,3}
+        \node[hidden box,right of=I-\y] (h-\name){};
+
+    % Draw the 2nd level hidden layer nodes
+	\foreach \name / \y in {1,...,3}
+        \node[hidden box,right of=h-\y,pin={[pin edge={->}]right:}] (H-\name) {};
+
+    % Draw the output layer node
+	\foreach \name / \y in {1,...,2}
+		\node[output neuron, pin=left:, pin={[pin edge={->}]right:$o_\y$}, right of=H-\y, xshift=1cm] (O-\name){};
+
+	\node[output neuron, pin=left:, pin={[pin edge={->}]right:$o_m$}, right of=H-3, xshift=1cm] (O-3){};
+
+	% Draw the ldots
+	\node (node1) [below=of I-2,yshift=0.7cm] {\ldots};
+	\node [left=of node1,xshift=0.5cm] {\ldots};
+	\node [below=of h-2,yshift=0.7cm]{\ldots};
+	\node [below=of H-2,yshift=0.7cm]{\ldots};
+	\node (node2) [below=of O-2,yshift=0.7cm]{\ldots};
+	\node [left=of node2,xshift=0.5cm]{\ldots};
+	\node [right=of node2,xshift=-0.5cm]{\ldots};
+
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \x in {1,...,3}
+		\foreach \y in {1,...,3}
+	{
+         \path (I-\x) edge (h-\y);
+		 \path (h-\x) edge (H-\y);
+	}
+
+    % Annotate the layers
+	\node[annot,below of=I-3,yshift=0.5cm](ol) {\footnotesize{输入层}};
+    \node[annot,below of=h-3,xshift=0.5cm,yshift=0.5cm] {\footnotesize{隐层}};
+    \node[annot,below of=O-3,yshift=0.5cm] {\footnotesize{输出层}};
+    
+\end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -3,7 +3,9 @@ thesis/auto
 slides/auto
 *.el
 *~
-*.rm 
+*.rm
+*.mp4
+*.avi
 thesis/*.aux 
 thesis/*.log
 thesis/*.toc 

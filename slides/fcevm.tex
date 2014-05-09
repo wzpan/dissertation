@@ -1,6 +1,6 @@
 % !Mode::"TeX:UTF-8"
 % !Mode:: "TeX:UTF-8"
-\documentclass[xcolor=svgnames,serif,table]{beamer}
+\documentclass[xcolor=svgnames,serif,table,10pt]{beamer}
 \mode<presentation>{
 % Setup appearance:
 \usecolortheme[named=FireBrick]{structure}
@@ -169,7 +169,10 @@
 
 \begin{frame}
   \frametitle{研究背景（Why）}
-  人类的视觉感知系统存在有限的感知域。对于超出感知域的微弱变化，裸眼无法感知。然而，这类信号却可能带有重要的信息。
+  人类的视觉感知系统存在有限的感知域。对于超出感知域的微弱变化，裸眼无法感知。然
+  而，这类信号却可能带有重要的信息。
+
+  \medskip
   \begin{center}
     \includegraphics[width=.5\textwidth]{eye.jpg}
   \end{center}
@@ -177,9 +180,11 @@
 
 \begin{frame}
   \frametitle{Mingzhe Poh的“魔镜”}
+  \small
   2011 年，MIT 的一个亚裔学生 Mingzhe Poh 利用了血液在人体内流动导致皮肤表面反射
-  光线的微弱变化设计了一个“魔镜”\cite{poh2010non,poh2011medical} \pozhehao 不仅能照出
-  镜子前的人的模样，还能测出他的心率。
+  光线的微弱变化设计了一面可以测量心率的“镜子”\cite{poh2011medical}。
+
+  \medskip
 \begin{center}
     \includegraphics[width=\textwidth]{mirror.pdf}
   \end{center}
@@ -311,23 +316,26 @@
 
 \begin{frame}
   \frametitle{拉格朗日视角和欧拉视角}
-  拉格朗日视角和欧拉视角是流体动力学中研究流场的两种视角。
+  \small
+  拉格朗日视角和欧拉视角是流体动力学中研究流场的两种视角。\pause
 
   \begin{itemize}
   \item 拉格朗日视角：通过观察场景中一些独立的粒子在时空中的运动轨迹来分析流体的
-    运动。
+    运动。\pause
   \item 欧拉视角：通过观察流体在一些特定时刻的运动情况来分析流体的运动。
   \end{itemize}
 
-  \begin{figure}
+  \medskip
+  \only<1>{\vspace{1.95cm}}
+  \begin{columns}
     \centering
-    \fbox{\includegraphics[height=2.2cm]{trajectories.jpg}}~~
-    \fbox{\includegraphics[height=2.2cm]{car-tracking1.jpg}}
-    
-    \medskip
-    
-    \fbox{\includegraphics[height=2.05cm]{car-tracking2.jpg}}
-  \end{figure}
+    \begin{column}{0.2\textwidth}
+      \only<2,3>{\fbox{\includegraphics[height=2.2cm]{trajectories.jpg}}}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \only<3>{\fbox{\includegraphics[height=2.2cm]{car-tracking2.jpg}}}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -352,6 +360,7 @@
     分割动作层
   \end{columns}
 
+  \medskip
   \begin{columns}
     \tiny
     \column{.3\textwidth}
@@ -367,23 +376,31 @@
     \includegraphics[width=\textwidth]{lag6.png}\\
     先对动作层进行人工编辑再放大的结果
   \end{columns}
-  
 \end{frame}
 
 \begin{frame}
-  \frametitle{欧拉视角的动作放大技术}
-  欧拉视角的影像动作放大方法又被称为欧拉影像放大技术（Eulerian Video
-  Magnification, EVM）。2012 年，文献 \cite{wu2012eulerian} 提出了一种线性的欧拉
-  影像动作放大方法。
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=.9\textwidth]{linear.pdf}
-  \label{fig:linear}
-\end{figure}
+  \frametitle{拉格朗日视角的动作放大技术 --- 结果示例}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{liu.pdf}
+    \label{fig:liu}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{欧拉视角的动作放大技术 --- 线性方法}
+  欧拉视角的影像动作放大方法又被称为欧拉影像放大技术（Eulerian Video
+  Magnification, EVM）。2012 年，文献 \cite{wu2012eulerian} 提出了一种线性的欧拉
+  影像动作放大方法。
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.9\textwidth]{linear.pdf}
+    \label{fig:linear}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{欧拉视角的动作放大技术 --- 结果示例}
   \small
   与拉格朗日视角的方法相比，欧拉视角的动作放大方法运算速度快，无需对放大后的结果进
 行背景填充。除此之外，该方法不仅可以用来放大动作的变化，还可以用来放大颜色的变化。
@@ -411,16 +428,16 @@
   \end{figure}
 \end{frame}
 
-% \begin{frame}
-%   \frametitle{欧拉视角的动作放大技术}
-%   两种方法放大一个吊车受风吹动产生的形变的结果对比：
+\begin{frame}
+  \frametitle{欧拉视角的动作放大技术 --- 结果对比}
+  线性的方法和基于相位的方法的结果对比：
 
-%   \begin{figure}[htbp]
-%   \centering
-%   \includegraphics[width=\textwidth]{compare.pdf}
-%   \label{fig:compare}
-% \end{figure}
-% \end{frame}
+  \begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{compare.pdf}
+  \label{fig:compare}
+\end{figure}
+\end{frame}
 
 \begin{frame}
   \frametitle{欧拉视角的动作放大技术 --- “鬼影”问题}
@@ -457,12 +474,23 @@
   的放大倍数都设为0来避免对这些区域进行放大。然而，这个方法直接忽略了存在大幅度动
   作的物体，因而无法对大幅度动作中的物体的细节变化进行放大。
 
-  \begin{center}
-    \includegraphics[width=.4\textwidth]{ignore.pdf}
-    ~
-    \includegraphics[width=.4\textwidth]{ignore2.pdf}
-  \end{center}
-    
+  \medskip
+  \begin{columns}
+    \small
+    \column{.5\textwidth}
+    \raggedleft
+    \begin{minipage}{0.7\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{ignore.pdf}\\
+      直接全局放大结果
+    \end{minipage}
+    \column{.5\textwidth}
+    \begin{minipage}{0.7\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{ignore2.pdf}\\
+      忽略大幅度运动的物体
+    \end{minipage}
+  \end{columns}
 \end{frame}
 
 \section{本文工作}
@@ -498,10 +526,27 @@
 
 \begin{frame}
   \frametitle{算法框架图}
-  \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{fc-evm.pdf}
-  \end{figure}
+  \centering
+  \scriptsize
+    \only<1>{\includegraphics[width=\textwidth, page=1]{fc-evm.pdf}\\\medskip 读
+      入视频}
+    % \only<2>{\includegraphics[width=\textwidth, page=2]{fc-evm.pdf}}
+    \only<2>{\includegraphics[width=\textwidth, page=3]{fc-evm.pdf}\\\medskip 选
+      择感兴趣的区域}
+    \only<3>{\includegraphics[width=\textwidth, page=4]{fc-evm.pdf}\\\medskip 区
+      域跟踪，提取前景掩码}
+    \only<4>{\includegraphics[width=\textwidth, page=5]{fc-evm.pdf}\\\medskip 空
+      间滤波}
+    \only<5>{\includegraphics[width=\textwidth, page=6]{fc-evm.pdf}\\\medskip 频
+      域滤波}
+    \only<6>{\includegraphics[width=\textwidth, page=7]{fc-evm.pdf}\\\medskip 放
+      大和叠加}
+    \only<7>{\includegraphics[width=\textwidth, page=8]{fc-evm.pdf}\\\medskip 基
+      带混合}
+    \only<8>{\includegraphics[width=\textwidth,
+      page=9]{fc-evm.pdf}\\\medskip 重构图像}
+    \only<9>{\includegraphics[width=\textwidth,
+      page=10]{fc-evm.pdf}\\\medskip 合成并输出视频}
 \end{frame}
 
 \subsection{区域跟踪}
@@ -526,6 +571,7 @@
   \end{itemize}
 \end{frame}
 
+\iffalse
 \begin{frame}
   \frametitle{Mean-shift 算法 --- 模式计算}
   \begin{block}{目标模式}
@@ -539,10 +585,6 @@
 \end{equation}
 \end{block}
 
-% 其中，$x_{0}$ 是搜索窗口的中心点的位置，$x_{i}$ 是窗口内第$i$点的位置，
-% $k\left( \left\| x \right\|^{2} \right)$ 是核函数，$h$ 是窗宽。$b$ 为脉冲函数，
-% 用于保证只有第$u$个特征值的像素才能对概率分布作出贡献。$\delta$为Kronecker
-% delta函数。归一化常数$C$用于保证$\sum_{u=1}^{m}\hat{q_u}=1$。
 \pause
 
 \begin{block}{目标候选模式}
@@ -682,31 +724,54 @@ $$
     \end{enumerate}
   \end{exampleblock}
 \end{frame}
+\fi
 
-\begin{frame}[allowframebreaks]
+\begin{frame}[t]
   \frametitle{Mean-shift与Kalman滤波相结合的跟踪算法}
-  \begin{block}{$k+1$时刻目标的位置$\hat{X}_{k+1}$}
-    \begin{equation}
-  \label{eq:target-pos}
-  \hat{X}_{k+1}=\textcolor{red}{\sigma}\textcolor{blue}{\hat{X}_{k+1,k}}+(1-\textcolor{red}{\sigma})\textcolor{black!60!green}{y_1}
-\end{equation}
-\end{block}
-其中，
-\begin{itemize}
-\item $\textcolor{blue}{\hat{X}_{k+1,k}}$：由Kalman滤波预测的目标位置。
-\item $\textcolor{black!60!green}{y_1}$：Mean-shift跟踪得到的目标位置。
-\item $\textcolor{red}{\sigma}$：比例因子（$0 \le \sigma \le 1$）。
-\end{itemize}
+  $k+1$时刻目标的位置$\hat{X}_{k+1}$：
 
-\begin{exampleblock}{Mean-shift和Kalman滤波相结合的跟踪算法}
+  \medskip
+  \begin{beamercolorbox}[shadow=true,sep=0pt,rounded=true]{box}
+    \begin{equation}
+      \label{eq:target-pos}
+      \hat{X}_{k+1}={\color<4>{blue}\sigma}{\color<3>{blue}\hat{X}_{k+1,k}}+(1-{\color<4>{blue}\sigma}){\color<2>{blue}y_1}
+    \end{equation}
+  \end{beamercolorbox}
+
+  \medskip
+  \begin{center}
+  \setlength{\extrarowheight}{1.5mm}
+  %\addtolength{\tabcolsep}{1mm}
+  \rowcolors[]{1}{orange!70}{white!90!gray}
+  \begin{tabular}{cl}
+    \onslide<2->{$\color<2>{blue}y_1$}       & \onslide<2->{Mean-shift跟踪得到的目标位置}\\
+    \onslide<3->{$\color<3>{blue}\hat{X}_{k+1,k}$} & \onslide<3->{由Kalman滤波预测的目标位置} \\
+    \onslide<4->{$\color<4>{blue}\sigma$}         & \onslide<4->{比例因子，（$0 \le \sigma \le 1$）}\\
+  \end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mean-shift与Kalman滤波相结合的跟踪算法}
+  \begin{block}{Bhattacharyya系数}
+    \begin{equation}
+      \label{eq:Bhattacharyya}
+      \rho(\rho(y),q)=\sum_{u=1}^{m}\sqrt{p_{u}(y)q_{u}}
+    \end{equation}
+  \end{block}
+
+  \pause
+  \begin{exampleblock}{Mean-shift和Kalman滤波相结合的跟踪算法}
   \begin{enumerate}[(S1)]
   \item 初始化目标的位置和速度；
   \item 使用Kalman预测目标在当前帧的位置$\hat{X}_{k+1,k}$；
   \item 使用Mean-shift算法获得目标在当前帧的位置$y_1$；
-  \item 根据公式\ref{eq:Bhattacharyya}计算Bhattacharyya系数的值，选择合适
-    的$\sigma$值，再根据公式\ref{eq:target-pos}计算目标位置$\hat{X}_{k+1}$ 。
+  \item 根据公式 \ref{eq:Bhattacharyya} 计算Bhattacharyya系数的值，选择合适的
+    $\sigma$值，再根据公式 \ref{eq:target-pos} 计算目标位置$\hat{X}_{k+1}$ 。
   \end{enumerate}
 \end{exampleblock}
+  
 \end{frame}
 
 \subsection{前景分割}
@@ -722,7 +787,7 @@ $$
 
 \begin{frame}
   \frametitle{前景分割 --- 边界问题}
-  \small
+
   如果直接对跟踪得到的区域图像序列进行欧拉影像动作放大，会导致最后的合成结果在区
   域边缘出现明显的边界。
 
@@ -737,7 +802,7 @@ $$
   GrabCut算法\cite{Rother2004}是在Graph Cuts算法\cite{Boykov2001}的基础上发展而来的一种简单直观的分割算法。
   \begin{figure}
     \centering
-    \includegraphics[width=5cm]{grabcut.pdf}
+    \includegraphics[width=.6\textwidth]{grabcut.pdf}
   \end{figure}
 \end{frame}
 
@@ -926,6 +991,8 @@ $$
 \begin{frame}
   \frametitle{基于四元数的理想带通滤波 --- 四元数DFT}
   \cite{sangwine2000discrete}给出了一般性的四元数傅里叶变换：
+  
+  \medskip
 \begin{beamercolorbox}[shadow=true,sep=0pt,rounded=true]{box}  
 \begin{equation}
   \label{eq:quaternion-dft}
@@ -933,7 +1000,10 @@ $$
 \end{equation}
 \end{beamercolorbox}
 
+  \medskip
 在本文中，$f$是包含了L*，a*，b*三个分量的二维向量，即
+
+  \medskip
 \begin{beamercolorbox}[shadow=true,sep=0pt,rounded=true]{box}  
 \begin{equation}
   \label{eq:quaternion-lab}

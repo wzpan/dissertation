@@ -1,0 +1,499 @@
+\documentclass{article}
+
+% CJK packages
+\usepackage{xeCJK}
+\usepackage{tikz}
+% \usepackage[floats,active]{preview}
+
+\setCJKmainfont{SimHei}
+\usetikzlibrary{mindmap,trees}
+% \setlength{\PreviewBorder}{0pt}
+% \renewcommand\PreviewBbAdjust{0 0 0 0}
+% \PreviewEnvironment{tikzpicture}
+\pagestyle{empty}
+
+\def\Root{前景约束的欧拉影像动作放大技术}
+\def\ChapterI{1. 研究背景\\（Why）}
+\def\ChapterII{2. 本文工作\\（What）}
+\def\ChapterIII{3. 算法细节\\（How）}
+\def\ChapterIIISectionI{区域跟踪}
+\def\ChapterIIISectionII{前景分割}
+\def\ChapterIIISectionIII{局部欧拉影像动作放大}
+\def\ChapterIV{4. 实验结果}
+\def\ChapterV{5. 工作展望}
+\def\ChapterVI{6. 其他}
+\def\ChapterVISectionI{论文和专利}
+\def\ChapterVISectionII{获奖情况}
+\def\ChapterVISectionIII{开源项目}
+
+\begin{document}
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=blue!50!black,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=green!50!black] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=green!50!black] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=green!50!black] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=orange] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=orange] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=orange] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=green!50!black] { node[concept] {\ChapterIV}}
+    child[concept color=green!50!black] { node[concept] {\ChapterV}}
+    child[concept color=green!50!black] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=orange] { node[concept] {\ChapterVISectionI} }
+      child[concept color=orange] { node[concept] {\ChapterVISectionII} }
+      child[concept color=orange] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+  };
+\end{tikzpicture}
+
+\newpage
+%----------------------第一节
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!50!green] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+
+\end{tikzpicture}
+
+\newpage
+%----------------------第二节
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!50!green] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+
+\end{tikzpicture}
+
+\newpage
+%----------------------第三节
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!50!green] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=orange] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=orange] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=orange] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\newpage
+%----------------------第3.1节
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=orange] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\newpage
+%----------------------第3.2节
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=orange] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\newpage
+%----------------------第3.3节
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=orange] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\newpage
+%----------------------第4节
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!50!green] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\newpage
+%----------------------第5节
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!50!green] { node[concept] {\ChapterV}}
+    child[concept color=black!20] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\newpage
+%----------------------第6节
+
+\begin{tikzpicture}[remember picture, overlay]
+
+  \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+  {%
+    \begin{tikzpicture}
+  
+  \path[mindmap,concept color=black!20,text=white]
+    node[concept] {\Root}
+    [clockwise from=120]
+    child[concept color=black!20] {
+      node[concept] {\ChapterI}
+    }
+    child[concept color=black!20] {
+      node[concept] {\ChapterII}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIII}
+      [clockwise from=60]
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+      child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+    }
+    child[concept color=black!20] { node[concept] {\ChapterIV}}
+    child[concept color=black!20] { node[concept] {\ChapterV}}
+    child[concept color=black!50!green] { node[concept] {\ChapterVI}
+      [clockwise from=-120]
+      child[concept color=orange] { node[concept] {\ChapterVISectionI} }
+      child[concept color=orange] { node[concept] {\ChapterVISectionII} }
+      child[concept color=orange] { node[concept] {\ChapterVISectionIII}}
+    }
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+% \newpage
+% %----------------------第6.1节
+
+% \begin{tikzpicture}[remember picture, overlay]
+
+%   \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+%   {%
+%     \begin{tikzpicture}
+  
+%   \path[mindmap,concept color=black!20,text=white]
+%     node[concept] {\Root}
+%     [clockwise from=120]
+%     child[concept color=black!20] {
+%       node[concept] {\ChapterI}
+%     }
+%     child[concept color=black!20] {
+%       node[concept] {\ChapterII}
+%     }
+%     child[concept color=black!20] { node[concept] {\ChapterIII}
+%       [clockwise from=60]
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+%     }
+%     child[concept color=black!20] { node[concept] {\ChapterIV}}
+%     child[concept color=black!20] { node[concept] {\ChapterV}}
+%     child[concept color=black!20] { node[concept] {\ChapterVI}
+%       [clockwise from=-120]
+%       child[concept color=orange] { node[concept] {\ChapterVISectionI} }
+%       child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+%       child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+%     }
+%   \end{tikzpicture}
+% };
+% \end{tikzpicture}
+
+% \newpage
+% %----------------------第6.2节
+
+% \begin{tikzpicture}[remember picture, overlay]
+
+%   \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+%   {%
+%     \begin{tikzpicture}
+  
+%   \path[mindmap,concept color=black!20,text=white]
+%     node[concept] {\Root}
+%     [clockwise from=120]
+%     child[concept color=black!20] {
+%       node[concept] {\ChapterI}
+%     }
+%     child[concept color=black!20] {
+%       node[concept] {\ChapterII}
+%     }
+%     child[concept color=black!20] { node[concept] {\ChapterIII}
+%       [clockwise from=60]
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+%     }
+%     child[concept color=black!20] { node[concept] {\ChapterIV}}
+%     child[concept color=black!20] { node[concept] {\ChapterV}}
+%     child[concept color=black!20] { node[concept] {\ChapterVI}
+%       [clockwise from=-120]
+%       child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+%       child[concept color=orange] { node[concept] {\ChapterVISectionII} }
+%       child[concept color=black!20] { node[concept] {\ChapterVISectionIII}}
+%     }
+%   \end{tikzpicture}
+% };
+% \end{tikzpicture}
+
+% \newpage
+% %----------------------第6.3节
+
+% \begin{tikzpicture}[remember picture, overlay]
+
+%   \node [shift={(10.5cm, -8cm)}]  at (current page.north west)
+%   {%
+%     \begin{tikzpicture}
+  
+%   \path[mindmap,concept color=black!20,text=white]
+%     node[concept] {\Root}
+%     [clockwise from=120]
+%     child[concept color=black!20] {
+%       node[concept] {\ChapterI}
+%     }
+%     child[concept color=black!20] {
+%       node[concept] {\ChapterII}
+%     }
+%     child[concept color=black!20] { node[concept] {\ChapterIII}
+%       [clockwise from=60]
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionI} }
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionII} }
+%       child[concept color=black!20] { node[concept] {\ChapterIIISectionIII}}
+%     }
+%     child[concept color=black!20] { node[concept] {\ChapterIV}}
+%     child[concept color=black!20] { node[concept] {\ChapterV}}
+%     child[concept color=black!20] { node[concept] {\ChapterVI}
+%       [clockwise from=-120]
+%       child[concept color=black!20] { node[concept] {\ChapterVISectionI} }
+%       child[concept color=black!20] { node[concept] {\ChapterVISectionII} }
+%       child[concept color=orange] { node[concept] {\ChapterVISectionIII}}
+%     }
+%   \end{tikzpicture}
+% };
+% \end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage[pdftex,active,tightpage]{preview}
+
+\setlength\PreviewBorder{0mm}
+\PreviewEnvironment{tikzpicture}
+
+\usetikzlibrary{arrows,shapes.misc,positioning,calc,chains,scopes}
+
+\tikzstyle{neuron}=[circle,fill=black!25,minimum size=12,inner sep=4]
+\tikzstyle{input neuron}=[neuron, fill=green!25, draw=green!70]
+\tikzstyle{output neuron}=[neuron, fill=blue!25, draw=blue!70]
+\tikzstyle{hidden neuron}=[neuron, fill=red!25, draw=red!70]
+\tikzstyle{small neuron}=[circle, minimum size=6, inner sep=2, fill=blue!25, draw=blue!70]
+\tikzstyle{A neuron}=[circle, minimum size=6, inner sep=0, fill=green!25, draw=green!70]
+\tikzstyle{B neuron}=[circle, minimum size=6, inner sep=0, fill=red!25, draw=red!70]
+\tikzstyle{ouput box}=[rectangle, fill=blue!25, draw=blue!70, minimum size=12, inner sep=4]
+\tikzstyle{hidden box}=[rectangle, fill=red!25, draw=red!70, minimum size=12, inner sep=4]
+\tikzstyle{thickarrow}=[thick,>=stealth]
+\tikzstyle{connect}=[thin]
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=1.6cm and 1cm]
+
+  \node (output1) [output neuron, label=left:$\omega_1$] {};
+  \node (outputj) [output neuron, label=left:$\omega_j$, right=of output1] {};
+  \node (outputm) [output neuron, label=left:$\omega_m$, right=of outputj] {};
+
+  \node (inputx1) [input neuron, below=of output1, xshift=-0.8cm]{};
+  \node (inputx2) [input neuron, right=of inputx1]{};
+  \node (inputxi) [input neuron, right=of inputx2]{};
+  \node (inputxn) [input neuron, right=of inputxi]{};
+
+  \node (label1)[above=of output1, yshift=-1.0cm]{$o_1$};
+  \node (labelj)[above=of outputj, yshift=-1.0cm]{$o_j$};
+  \node (labelm)[above=of outputm, yshift=-1.0cm]{$o_m$};
+
+  \node [right=of label1, xshift=-0.8cm]{\ldots};
+  \node [right=of labelj, xshift=-0.8cm]{\ldots};
+
+  \node (labelx1) [below=of inputx1, yshift=1.0cm]{$x_1$};
+  \node (labelx2) [below=of inputx2, yshift=1.0cm]{$x_2$};
+  \node (labelxi) [below=of inputxi, yshift=1.0cm]{$x_i$};
+  \node (labelxn) [below=of inputxn, yshift=1.0cm]{$x_n$};
+
+  \node [right=of labelx2, xshift=-0.8cm]{\dots};
+  \node [right=of labelxi, xshift=-0.8cm]{\ldots};
+
+  \draw [thickarrow,->] (output1) -- (label1);
+  \draw [thickarrow,->] (outputj) -- (labelj);
+  \draw [thickarrow,->] (outputm) -- (labelm);
+
+  \draw [thickarrow,<-] (inputx1) -- (labelx1);
+  \draw [thickarrow,<-] (inputx2) -- (labelx2);
+  \draw [thickarrow,<-] (inputxi) -- (labelxi);
+  \draw [thickarrow,<-] (inputxn) -- (labelxn);
+
+  \draw [thin] (output1)--(inputx1);
+  \draw [thin] (output1)--(inputx2);
+  \draw [thin] (output1)--(inputxi);
+  \draw [thin] (output1)--(inputxn);
+
+  \draw [thin] (outputj)--(inputx1);
+  \draw [thin] (outputj)--(inputx2);
+  \draw [thin] (outputj)--(inputxi);
+  \draw [thin] (outputj)--(inputxn);
+
+  \draw [thin] (outputm)--(inputx1);
+  \draw [thin] (outputm)--(inputx2);
+  \draw [thin] (outputm)--(inputxi);
+  \draw [thin] (outputm)--(inputxn);
+  
+\end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
