@@ -5,4 +5,5 @@ fcevm.pdf: fcevm.tex
 	xelatex fcevm
 
 clean:
-	rm -v *.aux *.log *.toc *.ind *.gls *.glo *.idx *.ilg *.out *.bbl *.thm *.blg *.lot *.lof *~
+	- rm -v *.aux *.log *.toc *.ind *.gls *.glo *.idx *.ilg *.out *.bbl *.thm *.blg *.lot *.lof *.nav *.snm *~
+	- rm -r auto/
